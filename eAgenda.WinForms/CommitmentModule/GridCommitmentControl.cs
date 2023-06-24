@@ -39,8 +39,13 @@ namespace eAgenda.WinForms.CommitmentModule
                 },
                 new DataGridViewTextBoxColumn()
                 {
-                    Name = "contact.Name",
-                    HeaderText = "CONTACT"
+                    Name = "endTime",
+                    HeaderText = "END TIME"
+                },
+                new DataGridViewTextBoxColumn()
+                {
+                    Name = "contactName",
+                    HeaderText = "CONTACT"                                       
                 },
                 new DataGridViewTextBoxColumn()
                 {
@@ -56,10 +61,12 @@ namespace eAgenda.WinForms.CommitmentModule
         {
             gridCommitments.Rows.Clear();
 
-            foreach (Commitment commitment in commitments)
+            foreach (Commitment c in commitments)
             {
-                gridCommitments.Rows.Add(commitment.id, commitment.subject, commitment.date, commitment.startTime, commitment.contact.Name, commitment.locationType);
+                gridCommitments.Rows.Add(c.id, c.subject, c.date, c.startTime, c.endTime, c.contact?.Name, c.locationType);
             }
+
+            MainScreenForm.Instance.UpdateFooter($"Viewing {commitments.Count} commitments");
         }
 
         public int GetSelectedId()

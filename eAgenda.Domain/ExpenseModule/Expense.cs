@@ -8,17 +8,17 @@
         public decimal price;
         public ExpensePaymentMethodEnum paymentMethod;
 
-        public List<Category> selectedCategory;
+        public Category category;
 
         public Expense() { }
 
-        public Expense(string description, DateTime date, decimal value, ExpensePaymentMethodEnum paymentMethod)
+        public Expense(string description, DateTime date, decimal value, ExpensePaymentMethodEnum paymentMethod, Category category)
         {
             this.description = description;
             this.date = date;
             this.price = value;
             this.paymentMethod = paymentMethod;
-            this.selectedCategory = new List<Category>();
+            this.category = category;
         }
 
         public override void UpdateInfos(Expense updateRecord)
@@ -27,7 +27,7 @@
             date = updateRecord.date;
             price = updateRecord.price;
             paymentMethod = updateRecord.paymentMethod;
-            selectedCategory = updateRecord.selectedCategory;
+            category = updateRecord.category;
         }
 
         public override string[] Errors()

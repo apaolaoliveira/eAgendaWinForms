@@ -47,20 +47,21 @@ namespace eAgenda.WinForms.ContactModule
                     Name = "position",
                     HeaderText = "POSITION"
                 }
-                        };
+            };
 
             gridContacts.Columns.AddRange(columns);
-            gridContacts.Rows.Add(1, "Paola", "paola@gmail.com", "999", "Academia do programador", "Aluna");
-            gridContacts.Rows.Add(2, "Rech", "rech@gmail.com", "888", "Academia do programador", "Professor");
-            gridContacts.Rows.Add(3, "Gustavo", "gustavo@gmail.com", "777", "Academia do programador", "Monitor");
         }
 
         public void UpdateList(List<Contact> contacts)
         {
+            gridContacts.Rows.Clear();
+
             foreach (Contact contact in contacts)
             {
                 gridContacts.Rows.Add(contact.id, contact.Name, contact.email, contact.phone, contact.company, contact.position);
             }
+
+            MainScreenForm.Instance.UpdateFooter($"Viewing {contacts.Count} contacts");
         }
 
         public int GetSelectedId()

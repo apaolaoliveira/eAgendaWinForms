@@ -1,12 +1,11 @@
 ﻿using eAgenda.Domain.ExpenseModule;
-using eAgenda.Domain.TaskModule;
-using eAgenda.WinForms.TaskModule;
 
 namespace eAgenda.WinForms.ExpenseModule
 {
     public class ExpenseController : ControllerBase
     {
         private IExpenseRepository _expenseRepository;
+        private ICategoryRepository _categoryRepository;
         private GridExpenseControl _expenseGrid;
 
         public ExpenseController(IExpenseRepository repository)
@@ -21,15 +20,16 @@ namespace eAgenda.WinForms.ExpenseModule
 
         public override void Add()
         {
-            ExpenseScreenForm expenseScreen = new ExpenseScreenForm();
+            //List<Category> categories = _categoryRepository.GetAll();
+            ExpenseScreenForm expenseScreen = new ExpenseScreenForm();//categories);
+            expenseScreen.Text = "Add a new expense";
+
             DialogResult selectedOption = expenseScreen.ShowDialog();
 
             if (selectedOption == DialogResult.OK)
             {
                 Expense newExpense = expenseScreen.GetExpense();
                 _expenseRepository.Add(newExpense);
-
-                MessageBox.Show("Informations suscessfuly recorded!");
             }
 
             UploadExpense();
@@ -45,14 +45,14 @@ namespace eAgenda.WinForms.ExpenseModule
                 return;
             }
 
-            ExpenseScreenForm screenExpense = new ExpenseScreenForm();
-
+            List<Category> categories = _categoryRepository.GetAll();
+            ExpenseScreenForm screenExpense = new ExpenseScreenForm();// categories);
+            screenExpense.Text = "Update selected expense";
             DialogResult selectedOption = screenExpense.ShowDialog();
 
             if (selectedOption == DialogResult.OK)
             {
                 Expense expense = screenExpense.GetExpense();
-
                 _expenseRepository.Update(expense.id, expense);
             }
 
@@ -66,7 +66,6 @@ namespace eAgenda.WinForms.ExpenseModule
             if (selectedExpense == null)
             {
                 MessageBox.Show("First select a Expense!", "Delete Expense", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
                 return;
             }
 
@@ -74,11 +73,8 @@ namespace eAgenda.WinForms.ExpenseModule
                 MessageBox.Show($"Are you sure about deleting \"{selectedExpense.description}\" from your list?",
                                 "Delete Expense", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (selectedOption == DialogResult.Yes)
-            {
-                _expenseRepository.Delete(selectedExpense);
-
-            }
+            if (selectedOption == DialogResult.Yes)            
+                _expenseRepository.Delete(selectedExpense);            
 
             UploadExpense();
         }
@@ -102,8 +98,6 @@ namespace eAgenda.WinForms.ExpenseModule
             List<Expense> Expense = _expenseRepository.GetAll();
 
             _expenseGrid.UpdateList(Expense);
-
-            MainScreenForm.Instance.UpdateFooter($"Viewing {Expense.Count} Categories.");
         }
 
         private Expense GetSelectedExpense()

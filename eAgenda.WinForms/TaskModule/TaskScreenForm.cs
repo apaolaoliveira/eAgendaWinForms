@@ -12,14 +12,13 @@ namespace eAgenda.WinForms.TaskModule
 
             UploadPriority();
 
-            if(editTask)            
+            if (editTask)
                 txtCreationDate.Enabled = false;
-            
         }
 
         private void UploadPriority()
         {
-            TaskPriorityEnum[] priorities = Enum.GetValues<TaskPriorityEnum>();   
+            TaskPriorityEnum[] priorities = Enum.GetValues<TaskPriorityEnum>();
 
             foreach (TaskPriorityEnum priority in priorities)
             {

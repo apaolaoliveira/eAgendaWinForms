@@ -8,10 +8,11 @@ namespace eAgenda.WinForms.CommitmentModule
         public CategoryScreenForm(List<Contact> contacts)
         {
             InitializeComponent();
-
             this.ConfigDialog();
 
             ConfigContacts(contacts);
+
+            rdbInPerson.Checked = true;
         }
 
         private void ConfigContacts(List<Contact> contacts)

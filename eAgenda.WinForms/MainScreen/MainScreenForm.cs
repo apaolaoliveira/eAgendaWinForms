@@ -82,7 +82,9 @@ namespace eAgenda.WinForms
 
         private void ConfigMainScreen(ControllerBase controlerBase)
         {
+            toolStrip.Enabled = true;
             lblRecordType.Text = controlerBase.GetRegisterType();
+
             ConfigToolStrip(controlerBase);
             configList(controlerBase);
         }
@@ -122,11 +124,17 @@ namespace eAgenda.WinForms
             btnFilter.Enabled = controller.FilterEnable;
             btnAddItem.Enabled = controller.AddItemEnable;
             btnCheckItem.Enabled = controller.CheckItemEnable;
+            lblFilter.Visible = controller.lblFilterVisible;
         }
 
         public void UpdateFooter(string message)
         {
             lblFooter.Text = message;
+        }
+
+        public void UpdateLblFilter(string message)
+        {
+            lblFilter.Text = message;
         }
 
         // CRUD --------------------------------------------------------------------   

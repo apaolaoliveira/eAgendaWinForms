@@ -41,9 +41,9 @@
             txtTitle.BackColor = Color.FromArgb(250, 250, 250);
             txtTitle.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtTitle.ForeColor = Color.FromArgb(15, 15, 15);
-            txtTitle.Location = new Point(94, 138);
+            txtTitle.Location = new Point(87, 121);
             txtTitle.Name = "txtTitle";
-            txtTitle.Size = new Size(504, 30);
+            txtTitle.Size = new Size(238, 30);
             txtTitle.TabIndex = 20;
             // 
             // txtId
@@ -51,7 +51,7 @@
             txtId.BackColor = Color.FromArgb(45, 45, 45);
             txtId.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtId.ForeColor = Color.FromArgb(250, 250, 250);
-            txtId.Location = new Point(94, 83);
+            txtId.Location = new Point(87, 66);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
             txtId.Size = new Size(238, 30);
@@ -63,7 +63,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12.5F, FontStyle.Italic, GraphicsUnit.Point);
             label6.ForeColor = Color.FromArgb(250, 250, 250);
-            label6.Location = new Point(46, 80);
+            label6.Location = new Point(39, 63);
             label6.Name = "label6";
             label6.Size = new Size(41, 30);
             label6.TabIndex = 18;
@@ -73,10 +73,10 @@
             // 
             btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancel.BackColor = Color.FromArgb(250, 250, 250);
-            btnCancel.DialogResult = DialogResult.OK;
+            btnCancel.DialogResult = DialogResult.Cancel;
             btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancel.ForeColor = Color.FromArgb(15, 15, 15);
-            btnCancel.Location = new Point(505, 243);
+            btnCancel.Location = new Point(211, 191);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(93, 47);
             btnCancel.TabIndex = 30;
@@ -90,7 +90,7 @@
             btnRegister.DialogResult = DialogResult.OK;
             btnRegister.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnRegister.ForeColor = Color.FromArgb(15, 15, 15);
-            btnRegister.Location = new Point(398, 243);
+            btnRegister.Location = new Point(104, 191);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(95, 47);
             btnRegister.TabIndex = 29;
@@ -103,7 +103,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12.5F, FontStyle.Italic, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(250, 250, 250);
-            label1.Location = new Point(26, 138);
+            label1.Location = new Point(19, 121);
             label1.Name = "label1";
             label1.Size = new Size(62, 30);
             label1.TabIndex = 31;
@@ -114,7 +114,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 15, 15);
-            ClientSize = new Size(639, 343);
+            ClientSize = new Size(379, 299);
             Controls.Add(label1);
             Controls.Add(btnCancel);
             Controls.Add(btnRegister);

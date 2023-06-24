@@ -36,6 +36,8 @@ namespace eAgenda.WinForms.ExpenseModule
             {
                 gridCategories.Rows.Add(c.id, c.title);
             }
+
+            MainScreenForm.Instance.UpdateFooter($"Viewing {category.Count} categories");
         }
 
         public int GetSelectedId()

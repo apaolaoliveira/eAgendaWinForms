@@ -4,13 +4,14 @@ namespace eAgenda.WinForms.ExpenseModule
 {
     public partial class ExpenseScreenForm : Form
     {
-        public ExpenseScreenForm()
+        public ExpenseScreenForm()//List<Category> categories)
         {
             InitializeComponent();
 
             this.ConfigDialog();
 
             ConfigPaymentMethod();
+            //ConfigCategory(categories);
         }
 
         private void ConfigPaymentMethod()
@@ -20,6 +21,14 @@ namespace eAgenda.WinForms.ExpenseModule
             foreach (ExpensePaymentMethodEnum p in pay)
             {
                 cmbPay.Items.Add(p);
+            }
+        }
+
+        public void ConfigCategory(List<Category> categories)
+        {
+            foreach (Category category in categories)
+            {
+                cbCategory.Items.Add(category);
             }
         }
 
@@ -33,7 +42,9 @@ namespace eAgenda.WinForms.ExpenseModule
 
             ExpensePaymentMethodEnum pay = (ExpensePaymentMethodEnum)cmbPay.SelectedItem;
 
-            return new Expense(description, date, price, pay);
+            Category category = (Category)cbCategory.SelectedItem;
+
+            return new Expense(description, date, price, pay, category);
         }
 
         private void btnRegister_Click(object sender, EventArgs e)

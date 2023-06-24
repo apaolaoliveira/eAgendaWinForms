@@ -7,18 +7,28 @@ namespace eAgenda.WinForms.CommitmentModule
         public CommitmentFilterScreenForm()
         {
             InitializeComponent();
+            this.ConfigDialog();
         }
 
         public CommitmentStatusEnum GetStatus()
         {
             if (rdbFuture.Checked)
+            {
+                MainScreenForm.Instance.UpdateLblFilter("Filtering Future Commitments");
                 return CommitmentStatusEnum.Future;
+            }
 
             else if (rdbPast.Checked)
+            {
+                MainScreenForm.Instance.UpdateLblFilter("Filtering Past Commitments");
                 return CommitmentStatusEnum.Past;
+            }
 
             else
+            {
+                MainScreenForm.Instance.UpdateLblFilter("Filtering All Commitments");
                 return CommitmentStatusEnum.All;
+            }
         }
 
         public DateTime GetStartDate()

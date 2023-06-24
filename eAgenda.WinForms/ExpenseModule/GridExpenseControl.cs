@@ -42,6 +42,11 @@ namespace eAgenda.WinForms.ExpenseModule
                 {
                     Name = "pay",
                     HeaderText = "PAYMENT METHOD",
+                },
+                new DataGridViewTextBoxColumn()
+                {
+                    Name = "category",
+                    HeaderText = "CATEGORY"
                 }
             };
 
@@ -54,8 +59,10 @@ namespace eAgenda.WinForms.ExpenseModule
 
             foreach (Expense e in expense)
             {
-                gridExpenses.Rows.Add(e.id, e.description, e.date.ToShortDateString(), e.price, e.paymentMethod);
+                gridExpenses.Rows.Add(e.id, e.description, e.date.ToShortDateString(), e.price.ToString("C"), e.paymentMethod, e.category);
             }
+
+            MainScreenForm.Instance.UpdateFooter($"Viewing {expense.Count} expenses");
         }
 
         public int GetSelectedId()

@@ -27,14 +27,13 @@ namespace eAgenda.WinForms.ContactModule
         public override void Add()
         {
             ContactScreenForm contactScreenForm = new ContactScreenForm();
+            contactScreenForm.Text = "Add a new contact";
             DialogResult selectedOption = contactScreenForm.ShowDialog();
 
             if (selectedOption == DialogResult.OK)
             {
                 Contact newContact = contactScreenForm.GetContact();
                 _contactRepository.Add(newContact);
-
-                MessageBox.Show("Informations suscessfuly recorded!");
             }
             
             UploadContacts();
@@ -46,11 +45,12 @@ namespace eAgenda.WinForms.ContactModule
 
             if (contact == null)
             {
-                MessageBox.Show("First select a contact!", "Update Contact", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("First, select a contact!", "Update Contact", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             ContactScreenForm contactScreenForm = new ContactScreenForm();
+            contactScreenForm.Text = "Update selected contact";
             contactScreenForm.ConfigScreen(contact);
 
             DialogResult selectedOption = contactScreenForm.ShowDialog();
@@ -59,7 +59,6 @@ namespace eAgenda.WinForms.ContactModule
             {
                 Contact updateContact = contactScreenForm.GetContact();
                 _contactRepository.Update(updateContact.id, updateContact);
-                MessageBox.Show("Informations suscessfuly updated!");
             }
             
             UploadContacts();
@@ -71,7 +70,7 @@ namespace eAgenda.WinForms.ContactModule
 
             if (contact == null)
             {
-                MessageBox.Show("First select a contact!", "Delete Contact", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("First, select a contact!", "Delete Contact", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -79,12 +78,9 @@ namespace eAgenda.WinForms.ContactModule
                 MessageBox.Show($"Are you sure about deleting \"{contact.Name}\" from your list?",
                                 "Delete Contact", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (selectedOption == DialogResult.Yes)
-            {
+            if (selectedOption == DialogResult.Yes)            
                 _contactRepository.Delete(contact);
-                MessageBox.Show("Contact suscessfuly deleted!");
-            }
-           
+                       
             UploadContacts();
         }
 

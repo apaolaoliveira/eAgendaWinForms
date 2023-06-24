@@ -89,7 +89,7 @@
             // 
             btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancel.BackColor = Color.FromArgb(250, 250, 250);
-            btnCancel.DialogResult = DialogResult.OK;
+            btnCancel.DialogResult = DialogResult.Cancel;
             btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancel.ForeColor = Color.FromArgb(15, 15, 15);
             btnCancel.Location = new Point(269, 368);

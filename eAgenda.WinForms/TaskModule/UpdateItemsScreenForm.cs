@@ -24,9 +24,9 @@ namespace eAgenda.WinForms.TaskModule
             {
                 listItemsTaks.Items.Add(item);
 
-                if(item.done) 
+                if (item.done)
                     listItemsTaks.SetItemChecked(i, true);
-                
+
                 i++;
             }
         }

@@ -13,6 +13,7 @@ namespace eAgenda.WinForms.CommitmentModule
         {
             _commitmentRepository = repository;
             _contactRepository = contactRepository;
+            MainScreenForm.Instance.UpdateLblFilter("");
         }
 
         public override string ToolTipAdd => "Add new Commitment";
@@ -25,10 +26,13 @@ namespace eAgenda.WinForms.CommitmentModule
 
         public override bool FilterEnable => true;
 
+        public override bool lblFilterVisible => true;
+
         public override void Add()
         {
             List<Contact> contacts = _contactRepository.GetAll();
             CategoryScreenForm commitmentScreen = new CategoryScreenForm(contacts);
+            commitmentScreen.Text = "Add a new commitment";
 
             DialogResult selectedOption = commitmentScreen.ShowDialog();
 
@@ -36,8 +40,6 @@ namespace eAgenda.WinForms.CommitmentModule
             {
                 Commitment newCommitment = commitmentScreen.GetCommitment();
                 _commitmentRepository.Add(newCommitment);
-
-                MessageBox.Show("Informations suscessfuly recorded!");
             }
 
             UploadCommitments();
@@ -48,17 +50,13 @@ namespace eAgenda.WinForms.CommitmentModule
 
             if (selectedCommitment == null)
             {
-                MessageBox.Show($"Selecione um compromisso primeiro!",
-                   "Edição de Commitments",
-                   MessageBoxButtons.OK,
-                   MessageBoxIcon.Exclamation);
-
+                MessageBox.Show($"First, select a commitment!", "Update Commitment", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             List<Contact> contacts = _contactRepository.GetAll();
             CategoryScreenForm commitmentScreen = new CategoryScreenForm(contacts);
-
+            commitmentScreen.Text = "Update selected commitment";
             commitmentScreen.ConfigScreen(selectedCommitment);
 
             DialogResult selectedOption = commitmentScreen.ShowDialog();
@@ -68,7 +66,6 @@ namespace eAgenda.WinForms.CommitmentModule
                 Commitment compromisso = commitmentScreen.GetCommitment();
 
                 _commitmentRepository.Update(compromisso.id, compromisso);
-
             }
 
             UploadCommitments();
@@ -80,8 +77,7 @@ namespace eAgenda.WinForms.CommitmentModule
 
             if (selectedCommitment == null)
             {
-                MessageBox.Show("First select a commitment!", "Delete Commitment", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
+                MessageBox.Show("First, select a commitment!", "Delete Commitment", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -89,11 +85,8 @@ namespace eAgenda.WinForms.CommitmentModule
                 MessageBox.Show($"Are you sure about deleting \"{selectedCommitment.subject}\" from your list?",
                                 "Delete Commitment", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (selectedOption == DialogResult.Yes)
-            {
-                _commitmentRepository.Delete(selectedCommitment);
-
-            }
+            if (selectedOption == DialogResult.Yes)            
+                _commitmentRepository.Delete(selectedCommitment);            
 
             UploadCommitments();
         }
@@ -101,6 +94,7 @@ namespace eAgenda.WinForms.CommitmentModule
         public override void Filter()
         {
             CommitmentFilterScreenForm filterScreen = new CommitmentFilterScreenForm();
+            filterScreen.Text = "Commitment's filter";
             DialogResult selectedOption = filterScreen.ShowDialog();
 
             if (selectedOption == DialogResult.OK)
@@ -109,8 +103,7 @@ namespace eAgenda.WinForms.CommitmentModule
                 List<Commitment> commitment = null;
 
                 if (status == CommitmentStatusEnum.All)                
-                    commitment = _commitmentRepository.GetAll();
-                
+                    commitment = _commitmentRepository.GetAll();                
 
                 else if (status == CommitmentStatusEnum.Past)                
                     commitment = _commitmentRepository.SelectPastCommitment(DateTime.Now);
@@ -124,21 +117,12 @@ namespace eAgenda.WinForms.CommitmentModule
                 }
 
                 UploadCommitments(commitment);
-
-                MainScreenForm.Instance.UpdateFooter($"Viewing {commitment.Count} Commitments");
             }
         }
 
         private void UploadCommitments(List<Commitment> Commitments)
         {
             _commitmentGrid.UpdateList(Commitments);
-        }
-
-        private Commitment GetSelectedCommitment()
-        {
-            int id = _commitmentGrid.GetSelectedId();
-
-            return _commitmentRepository.SelectId(id);
         }
 
         private void UploadCommitments()
@@ -148,12 +132,17 @@ namespace eAgenda.WinForms.CommitmentModule
             _commitmentGrid.UpdateList(commitments);
         }
 
+        private Commitment GetSelectedCommitment()
+        {
+            int id = _commitmentGrid.GetSelectedId();
+
+            return _commitmentRepository.SelectId(id);
+        }
+
         public override UserControl GetList()
         {
-            if (_commitmentGrid == null)
-            {
-                _commitmentGrid = new GridCommitmentControl();
-            }
+            if (_commitmentGrid == null)            
+                _commitmentGrid = new GridCommitmentControl();            
 
             UploadCommitments();
 

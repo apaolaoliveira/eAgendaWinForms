@@ -69,6 +69,7 @@
             // 
             // cmbPriority
             // 
+            cmbPriority.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPriority.FormattingEnabled = true;
             cmbPriority.Location = new Point(151, 133);
             cmbPriority.Margin = new Padding(3, 4, 3, 4);
@@ -116,7 +117,7 @@
             // 
             btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancel.BackColor = Color.FromArgb(250, 250, 250);
-            btnCancel.DialogResult = DialogResult.OK;
+            btnCancel.DialogResult = DialogResult.Cancel;
             btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancel.ForeColor = Color.FromArgb(15, 15, 15);
             btnCancel.Location = new Point(562, 214);

@@ -20,14 +20,13 @@ namespace eAgenda.WinForms.ExpenseModule
         public override void Add()
         {            
             CategoryScreenForm categoryScreen = new CategoryScreenForm();
+            categoryScreen.Text = "Add a new category";
             DialogResult selectedOption = categoryScreen.ShowDialog();
 
             if (selectedOption == DialogResult.OK)
             {
                 Category newCategory = categoryScreen.GetCategory();
                 _categoryRepository.Add(newCategory);
-
-                MessageBox.Show("Informations suscessfuly recorded!");
             }
 
             UploadCategory();
@@ -39,13 +38,12 @@ namespace eAgenda.WinForms.ExpenseModule
 
             if (selectedCategory == null)
             {
-                MessageBox.Show("First select a category!", "Delete Category", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
+                MessageBox.Show("First, select a category!", "Delete Category", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             CategoryScreenForm CategoryScreen = new CategoryScreenForm();
-
+            CategoryScreen.Text = "Update selected category";
             CategoryScreen.ConfigScreen(selectedCategory);
 
             DialogResult selectedOption = CategoryScreen.ShowDialog();
@@ -66,8 +64,7 @@ namespace eAgenda.WinForms.ExpenseModule
 
             if (selectedCategory == null)
             {
-                MessageBox.Show("First select a Category!", "Delete Category", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
+                MessageBox.Show("First, select a Category!", "Delete Category", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -75,11 +72,8 @@ namespace eAgenda.WinForms.ExpenseModule
                 MessageBox.Show($"Are you sure about deleting \"{selectedCategory.title}\" from your list?",
                                 "Delete Category", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (selectedOption == DialogResult.Yes)
-            {
-                _categoryRepository.Delete(selectedCategory);
-
-            }
+            if (selectedOption == DialogResult.Yes)            
+                _categoryRepository.Delete(selectedCategory);            
 
             UploadCategory();
         }
@@ -99,8 +93,6 @@ namespace eAgenda.WinForms.ExpenseModule
             List<Category> category = _categoryRepository.GetAll();
 
             _categoryGrid.UpdateList(category);
-
-            MainScreenForm.Instance.UpdateFooter($"Viewing {category.Count} Categories.");
         }
 
         private Category GetSelectedCategory()

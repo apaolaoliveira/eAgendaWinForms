@@ -48,8 +48,10 @@
 
             foreach (Domain.TaskModule.Task task in tasks)
             {
-                gridTasks.Rows.Add(task.id, task.title, task.priority, task.percentCompleted);
+                gridTasks.Rows.Add(task.id, task.title, task.priority, task.percentCompleted.ToString("F0") + "%");
             }
+
+            MainScreenForm.Instance.UpdateFooter($"Viewing {tasks.Count} tasks");
         }
 
         public int GetSelectedId()

@@ -11,6 +11,7 @@ namespace eAgenda.WinForms.TaskModule
         public TaskController(ITaskRepository repository)
         {
             _taskRepository = repository;
+            MainScreenForm.Instance.UpdateLblFilter("");
         }
 
         public override string ToolTipAdd => "Add new Task";
@@ -29,20 +30,20 @@ namespace eAgenda.WinForms.TaskModule
 
         public override bool AddItemEnable => true;
 
-        public override bool FilterEnable => true; 
+        public override bool FilterEnable => true;
+
+        public override bool lblFilterVisible => true;
 
         public override void Add()
         {
             TaskScreenForm taskScreen = new TaskScreenForm(editTask: false);
-
+            taskScreen.Text = "Add a new task";
             DialogResult selectedOption = taskScreen.ShowDialog();
 
             if (selectedOption == DialogResult.OK)
             {
                 Domain.TaskModule.Task newTask = taskScreen.GetTask();
-
                 _taskRepository.Add(newTask);
-
             }
 
             UploadTasks();
@@ -54,12 +55,12 @@ namespace eAgenda.WinForms.TaskModule
 
             if (selectedTask == null)
             {
-                MessageBox.Show("First select a task!", "Delete Task", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("First, select a task!", "Delete Task", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             TaskScreenForm screenTask = new TaskScreenForm(editTask: true);
-
+            screenTask.Text = "Update selected task";
             screenTask.ConfigScreen(selectedTask);
 
             DialogResult selectedOption = screenTask.ShowDialog();
@@ -67,7 +68,6 @@ namespace eAgenda.WinForms.TaskModule
             if(selectedOption == DialogResult.OK)
             {
                 Domain.TaskModule.Task task = screenTask.GetTask();
-
                 _taskRepository.Update(task.id, task);
             }
 
@@ -80,7 +80,7 @@ namespace eAgenda.WinForms.TaskModule
 
             if(selectedTask == null)
             {
-                MessageBox.Show("First select a task!", "Delete Task", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("First, select a task!", "Delete Task", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -88,11 +88,8 @@ namespace eAgenda.WinForms.TaskModule
                 MessageBox.Show($"Are you sure about deleting \"{selectedTask.title}\" from your list?",
                                 "Delete Task", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (selectedOption == DialogResult.Yes)
-            {
-                _taskRepository.Delete(selectedTask);
-                MessageBox.Show("Task suscessfuly deleted!");
-            }
+            if (selectedOption == DialogResult.Yes)            
+                _taskRepository.Delete(selectedTask);            
 
             UploadTasks();
         }
@@ -103,12 +100,12 @@ namespace eAgenda.WinForms.TaskModule
 
             if(selectedTask == null)
             {
-                MessageBox.Show("First select a task!", "Update Task", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("First, select a task!", "Update Task", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             RecordItemsScreenForm recordItems = new RecordItemsScreenForm(selectedTask);
-
+            recordItems.Text = "Add items to a task";
             DialogResult selectedOption = recordItems.ShowDialog();
 
             if(selectedOption == DialogResult.OK)
@@ -132,12 +129,12 @@ namespace eAgenda.WinForms.TaskModule
             
             if (selectedTask == null)
             {
-                MessageBox.Show("First select a task!", "Update Task", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("First, select a task!", "Update Task", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             UpdateItemsScreenForm updateItems = new UpdateItemsScreenForm(selectedTask);
-
+            updateItems.Text = "Check a task's items";
             DialogResult selectedOption = updateItems.ShowDialog();
 
             if(selectedOption == DialogResult.OK)
@@ -165,7 +162,7 @@ namespace eAgenda.WinForms.TaskModule
         public override void Filter()
         {
             FilterTaskScreenForm screenFilter = new FilterTaskScreenForm();
-
+            screenFilter.Text = "Task's filter";
             DialogResult selectedOption = screenFilter.ShowDialog();
 
             if(selectedOption == DialogResult.OK)
@@ -212,8 +209,6 @@ namespace eAgenda.WinForms.TaskModule
         private void UploadTasks(List<Domain.TaskModule.Task> tasks)
         {
             _taskGrid.UpdateList(tasks);
-
-            MainScreenForm.Instance.UpdateFooter($"Viewing {tasks.Count} tasks");
         }
 
         private void UploadTasks()
@@ -221,8 +216,6 @@ namespace eAgenda.WinForms.TaskModule
             List<Domain.TaskModule.Task> tasks = _taskRepository.SelectByPriorities();
 
             _taskGrid.UpdateList(tasks);
-
-            MainScreenForm.Instance.UpdateFooter($"Viewing {tasks.Count} tasks");
         }
     }
 }

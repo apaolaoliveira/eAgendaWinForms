@@ -158,7 +158,7 @@
             txtEndTime.Name = "txtEndTime";
             txtEndTime.Size = new Size(230, 27);
             txtEndTime.TabIndex = 23;
-            txtEndTime.Value = new DateTime(2023, 6, 6, 12, 0, 0, 0);
+            txtEndTime.Value = new DateTime(2023, 6, 6, 18, 0, 0, 0);
             // 
             // chkSelectContact
             // 
@@ -179,7 +179,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12.5F, FontStyle.Italic, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(250, 250, 250);
-            label4.Location = new Point(401, 254);
+            label4.Location = new Point(401, 252);
             label4.Name = "label4";
             label4.Size = new Size(94, 30);
             label4.TabIndex = 25;
@@ -242,8 +242,10 @@
             // 
             // cmbContacts
             // 
+            cmbContacts.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbContacts.Enabled = false;
             cmbContacts.FormattingEnabled = true;
-            cmbContacts.Location = new Point(502, 250);
+            cmbContacts.Location = new Point(502, 253);
             cmbContacts.Name = "cmbContacts";
             cmbContacts.Size = new Size(230, 28);
             cmbContacts.TabIndex = 0;
@@ -252,7 +254,7 @@
             // 
             btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancel.BackColor = Color.FromArgb(250, 250, 250);
-            btnCancel.DialogResult = DialogResult.OK;
+            btnCancel.DialogResult = DialogResult.Cancel;
             btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancel.ForeColor = Color.FromArgb(15, 15, 15);
             btnCancel.Location = new Point(639, 489);
@@ -277,7 +279,7 @@
             btnRegister.UseVisualStyleBackColor = false;
             btnRegister.Click += btnRegister_Click;
             // 
-            // CommitmentScreenForm
+            // CategoryScreenForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -300,7 +302,7 @@
             Controls.Add(txtId);
             Controls.Add(label6);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "CommitmentScreenForm";
+            Name = "CategoryScreenForm";
             RightToLeft = RightToLeft.No;
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;

@@ -47,8 +47,10 @@
             toolStripSeparator1 = new ToolStripSeparator();
             btnAddItem = new ToolStripButton();
             btnCheckItem = new ToolStripButton();
-            toolStripSeparator3 = new ToolStripSeparator();
+            toolStripSeparator4 = new ToolStripSeparator();
             lblRecordType = new ToolStripLabel();
+            toolStripSeparator3 = new ToolStripSeparator();
+            lblFilter = new ToolStripLabel();
             pnlRecords = new Panel();
             menuStrip.SuspendLayout();
             statusStrip.SuspendLayout();
@@ -63,7 +65,7 @@
             menuStrip.Items.AddRange(new ToolStripItem[] { registersToolStripMenuItem });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
-            menuStrip.Size = new Size(1143, 50);
+            menuStrip.Size = new Size(1202, 50);
             menuStrip.TabIndex = 0;
             menuStrip.Text = "menuStrip1";
             // 
@@ -137,9 +139,9 @@
             // 
             statusStrip.ImageScalingSize = new Size(20, 20);
             statusStrip.Items.AddRange(new ToolStripItem[] { lblFooter });
-            statusStrip.Location = new Point(0, 653);
+            statusStrip.Location = new Point(0, 713);
             statusStrip.Name = "statusStrip";
-            statusStrip.Size = new Size(1143, 22);
+            statusStrip.Size = new Size(1202, 24);
             statusStrip.TabIndex = 1;
             // 
             // lblFooter
@@ -148,19 +150,21 @@
             lblFooter.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             lblFooter.ForeColor = Color.FromArgb(15, 15, 15);
             lblFooter.Name = "lblFooter";
-            lblFooter.Size = new Size(0, 16);
+            lblFooter.Size = new Size(0, 18);
             // 
             // toolStrip
             // 
+            toolStrip.Enabled = false;
             toolStrip.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             toolStrip.GripMargin = new Padding(5);
+            toolStrip.GripStyle = ToolStripGripStyle.Hidden;
             toolStrip.ImageScalingSize = new Size(20, 20);
-            toolStrip.Items.AddRange(new ToolStripItem[] { btnAdd, btnUpdate, btnDelete, toolStripSeparator2, btnFilter, toolStripSeparator1, btnAddItem, btnCheckItem, toolStripSeparator3, lblRecordType });
+            toolStrip.Items.AddRange(new ToolStripItem[] { btnAdd, btnUpdate, btnDelete, toolStripSeparator2, btnFilter, toolStripSeparator1, btnAddItem, btnCheckItem, toolStripSeparator4, lblRecordType, toolStripSeparator3, lblFilter });
             toolStrip.Location = new Point(0, 50);
             toolStrip.Margin = new Padding(5);
             toolStrip.Name = "toolStrip";
-            toolStrip.Padding = new Padding(2);
-            toolStrip.Size = new Size(1143, 54);
+            toolStrip.Padding = new Padding(4);
+            toolStrip.Size = new Size(1202, 58);
             toolStrip.TabIndex = 2;
             toolStrip.Text = "toolStrip1";
             // 
@@ -170,7 +174,7 @@
             btnAdd.Image = Properties.Resources.addIcon;
             btnAdd.ImageScaling = ToolStripItemImageScaling.None;
             btnAdd.ImageTransparentColor = Color.Magenta;
-            btnAdd.Margin = new Padding(5);
+            btnAdd.Margin = new Padding(7, 5, 5, 5);
             btnAdd.Name = "btnAdd";
             btnAdd.Padding = new Padding(2);
             btnAdd.Size = new Size(40, 40);
@@ -246,10 +250,10 @@
             btnCheckItem.Size = new Size(36, 40);
             btnCheckItem.Click += btnCheckItem_Click;
             // 
-            // toolStripSeparator3
+            // toolStripSeparator4
             // 
-            toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(6, 50);
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(6, 50);
             // 
             // lblRecordType
             // 
@@ -258,13 +262,26 @@
             lblRecordType.Size = new Size(114, 47);
             lblRecordType.Text = "Record Type";
             // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(6, 50);
+            // 
+            // lblFilter
+            // 
+            lblFilter.ForeColor = Color.FromArgb(15, 15, 15);
+            lblFilter.Name = "lblFilter";
+            lblFilter.Size = new Size(0, 47);
+            lblFilter.Visible = false;
+            // 
             // pnlRecords
             // 
+            pnlRecords.BackColor = Color.FromArgb(14, 14, 14);
             pnlRecords.BorderStyle = BorderStyle.Fixed3D;
             pnlRecords.Dock = DockStyle.Fill;
-            pnlRecords.Location = new Point(0, 104);
+            pnlRecords.Location = new Point(0, 108);
             pnlRecords.Name = "pnlRecords";
-            pnlRecords.Size = new Size(1143, 549);
+            pnlRecords.Size = new Size(1202, 605);
             pnlRecords.TabIndex = 3;
             // 
             // MainScreenForm
@@ -272,7 +289,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 15, 15);
-            ClientSize = new Size(1143, 675);
+            ClientSize = new Size(1202, 737);
             Controls.Add(pnlRecords);
             Controls.Add(toolStrip);
             Controls.Add(statusStrip);
@@ -313,10 +330,12 @@
         private Panel pnlRecords;
         private ToolStripButton btnFilter;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripLabel lblRecordType;
+        private ToolStripLabel lblFilter;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripButton btnAddItem;
         private ToolStripButton btnCheckItem;
         private ToolStripSeparator toolStripSeparator3;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripLabel lblRecordType;
     }
 }

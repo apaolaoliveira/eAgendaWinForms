@@ -41,10 +41,10 @@
             // 
             listItemsTaks.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular, GraphicsUnit.Point);
             listItemsTaks.FormattingEnabled = true;
-            listItemsTaks.Location = new Point(50, 150);
+            listItemsTaks.Location = new Point(138, 150);
             listItemsTaks.Margin = new Padding(4, 5, 4, 5);
             listItemsTaks.Name = "listItemsTaks";
-            listItemsTaks.Size = new Size(572, 334);
+            listItemsTaks.Size = new Size(365, 334);
             listItemsTaks.TabIndex = 24;
             // 
             // txtTitle
@@ -54,7 +54,7 @@
             txtTitle.Margin = new Padding(4, 5, 4, 5);
             txtTitle.Name = "txtTitle";
             txtTitle.ReadOnly = true;
-            txtTitle.Size = new Size(484, 32);
+            txtTitle.Size = new Size(365, 32);
             txtTitle.TabIndex = 21;
             // 
             // label2
@@ -95,10 +95,10 @@
             // 
             btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancel.BackColor = Color.FromArgb(250, 250, 250);
-            btnCancel.DialogResult = DialogResult.OK;
+            btnCancel.DialogResult = DialogResult.Cancel;
             btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancel.ForeColor = Color.FromArgb(15, 15, 15);
-            btnCancel.Location = new Point(529, 559);
+            btnCancel.Location = new Point(410, 520);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(93, 47);
             btnCancel.TabIndex = 26;
@@ -112,19 +112,19 @@
             btnRegister.DialogResult = DialogResult.OK;
             btnRegister.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnRegister.ForeColor = Color.FromArgb(15, 15, 15);
-            btnRegister.Location = new Point(422, 559);
+            btnRegister.Location = new Point(303, 520);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(95, 47);
             btnRegister.TabIndex = 25;
             btnRegister.Text = "REGISTER";
             btnRegister.UseVisualStyleBackColor = false;
             // 
-            // ItemsScreenForm
+            // UpdateItemsScreenForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 15, 15);
-            ClientSize = new Size(680, 652);
+            ClientSize = new Size(574, 602);
             Controls.Add(btnCancel);
             Controls.Add(btnRegister);
             Controls.Add(listItemsTaks);
@@ -134,8 +134,8 @@
             Controls.Add(label1);
             Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             ForeColor = Color.Snow;
-            Margin = new Padding(4, 4, 4, 4);
-            Name = "ItemsScreenForm";
+            Margin = new Padding(4);
+            Name = "UpdateItemsScreenForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Item Screen";

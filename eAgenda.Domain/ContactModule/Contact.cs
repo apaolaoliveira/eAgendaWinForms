@@ -35,7 +35,7 @@ namespace eAgenda.Domain.ContactModule
 
         public override string ToString()
         {
-            return $"Id: {id} , Name: {Name}, Email: {email}, Phone: {phone}, Company: {company}, Position: {position}";
+            return $"{Name}";
         }
 
         public override void UpdateInfos(Contact entity)
