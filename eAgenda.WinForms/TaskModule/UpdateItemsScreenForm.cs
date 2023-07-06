@@ -20,6 +20,7 @@ namespace eAgenda.WinForms.TaskModule
             txtTitle.Text = task.title;
 
             int i = 0;
+
             foreach (TaskItem item in task.items)
             {
                 listItemsTaks.Items.Add(item);

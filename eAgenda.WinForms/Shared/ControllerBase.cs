@@ -22,14 +22,16 @@ namespace eAgenda.WinForms.Shared
         public virtual string ToolTipFilter { get; }
         public virtual string ToolTipAddItem { get; }
         public virtual string ToolTipCheckItem { get; }
+        public virtual string ToolTipList { get; }
 
         public virtual bool FilterEnable { get { return false; } }
         public virtual bool lblFilterVisible { get { return false; } }
         public virtual bool AddItemEnable { get { return false; } }
         public virtual bool CheckItemEnable { get { return false; } }
+        public virtual bool ListEnable { get { return false; } }
 
         //-----------------------------------------------------------------
-                
+
         public abstract UserControl GetList();
 
         public abstract void Add();
@@ -39,5 +41,6 @@ namespace eAgenda.WinForms.Shared
         public virtual void Filter() { }
         public virtual void AddItem() { }
         public virtual void CheckItem() { }
+        public virtual void List() { }
     }
 }

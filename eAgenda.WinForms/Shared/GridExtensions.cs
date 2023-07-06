@@ -20,20 +20,17 @@
 
         public static void ConfigGridReadOnly(this DataGridView grid)
         {
+            grid.ReadOnly = true;      
+            grid.MultiSelect = false;
             grid.AllowUserToAddRows = false;
+            grid.AutoGenerateColumns = false;
+            grid.AllowUserToResizeRows = false;
             grid.AllowUserToDeleteRows = false;
 
             grid.BorderStyle = BorderStyle.None;
+            grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
-            grid.MultiSelect = false;
-            grid.ReadOnly = true;            
-
-            grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            grid.AutoGenerateColumns = false;
-
-            grid.AllowUserToResizeRows = false;
         }
     }
 }

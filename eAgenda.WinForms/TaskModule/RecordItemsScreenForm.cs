@@ -26,13 +26,29 @@ namespace eAgenda.WinForms.TaskModule
         {
             string title = txtDescription.Text;
 
+            if (string.IsNullOrWhiteSpace(title))
+                return;
+
             TaskItem taskItem = new TaskItem(title);
 
             listItems.Items.Add(taskItem);
+
+            txtDescription.Text = string.Empty;
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (listItems.SelectedItem == null)
+            {
+                MainScreenForm.Instance.UpdateFooter("First, select a value from the list.");
+                return;
+            }
+
+            listItems.Items.Remove(listItems.SelectedItem);
         }
 
         public List<TaskItem> GetRecordItems()
-        {
+        {            
             return listItems.Items.Cast<TaskItem>().ToList();
         }
     }

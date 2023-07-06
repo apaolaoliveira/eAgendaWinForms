@@ -8,9 +8,10 @@ namespace eAgenda.WinForms.ExpenseModule
         private ICategoryRepository _categoryRepository;
         private GridExpenseControl _expenseGrid;
 
-        public ExpenseController(IExpenseRepository repository)
+        public ExpenseController(IExpenseRepository repository, ICategoryRepository categoryRepository)
         {
             _expenseRepository = repository;
+            _categoryRepository = categoryRepository;
         }
         public override string ToolTipAdd => "Add new Expense";
 
@@ -20,8 +21,9 @@ namespace eAgenda.WinForms.ExpenseModule
 
         public override void Add()
         {
-            //List<Category> categories = _categoryRepository.GetAll();
-            ExpenseScreenForm expenseScreen = new ExpenseScreenForm();//categories);
+            List<Category> categories = _categoryRepository.GetAll();
+
+            ExpenseScreenForm expenseScreen = new ExpenseScreenForm(categories);
             expenseScreen.Text = "Add a new expense";
 
             DialogResult selectedOption = expenseScreen.ShowDialog();
@@ -29,6 +31,7 @@ namespace eAgenda.WinForms.ExpenseModule
             if (selectedOption == DialogResult.OK)
             {
                 Expense newExpense = expenseScreen.GetExpense();
+
                 _expenseRepository.Add(newExpense);
             }
 
@@ -46,7 +49,8 @@ namespace eAgenda.WinForms.ExpenseModule
             }
 
             List<Category> categories = _categoryRepository.GetAll();
-            ExpenseScreenForm screenExpense = new ExpenseScreenForm();// categories);
+            ExpenseScreenForm screenExpense = new ExpenseScreenForm(categories);
+
             screenExpense.Text = "Update selected expense";
             DialogResult selectedOption = screenExpense.ShowDialog();
 
@@ -73,8 +77,10 @@ namespace eAgenda.WinForms.ExpenseModule
                 MessageBox.Show($"Are you sure about deleting \"{selectedExpense.description}\" from your list?",
                                 "Delete Expense", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (selectedOption == DialogResult.Yes)            
-                _expenseRepository.Delete(selectedExpense);            
+            if (selectedOption == DialogResult.Yes)
+            {
+                _expenseRepository.Delete(selectedExpense);
+            }            
 
             UploadExpense();
         }

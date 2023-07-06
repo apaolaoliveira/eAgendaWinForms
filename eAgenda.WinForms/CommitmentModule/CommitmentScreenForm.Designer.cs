@@ -54,12 +54,12 @@
             // txtId
             // 
             txtId.BackColor = Color.FromArgb(45, 45, 45);
-            txtId.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtId.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtId.ForeColor = Color.FromArgb(250, 250, 250);
             txtId.Location = new Point(502, 115);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(230, 30);
+            txtId.Size = new Size(230, 32);
             txtId.TabIndex = 15;
             txtId.Text = "0";
             // 
@@ -77,11 +77,11 @@
             // txtSubject
             // 
             txtSubject.BackColor = Color.FromArgb(250, 250, 250);
-            txtSubject.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSubject.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtSubject.ForeColor = Color.FromArgb(15, 15, 15);
             txtSubject.Location = new Point(145, 53);
             txtSubject.Name = "txtSubject";
-            txtSubject.Size = new Size(587, 30);
+            txtSubject.Size = new Size(587, 32);
             txtSubject.TabIndex = 17;
             // 
             // lblSubject
@@ -108,11 +108,11 @@
             // 
             // txtDate
             // 
-            txtDate.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDate.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtDate.Format = DateTimePickerFormat.Short;
             txtDate.Location = new Point(144, 115);
             txtDate.Name = "txtDate";
-            txtDate.Size = new Size(231, 30);
+            txtDate.Size = new Size(231, 32);
             txtDate.TabIndex = 19;
             txtDate.Value = new DateTime(2023, 6, 6, 0, 0, 0, 0);
             // 
@@ -142,10 +142,11 @@
             // 
             txtStartTime.CalendarFont = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtStartTime.CustomFormat = "HH:mm";
+            txtStartTime.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtStartTime.Format = DateTimePickerFormat.Custom;
             txtStartTime.Location = new Point(145, 184);
             txtStartTime.Name = "txtStartTime";
-            txtStartTime.Size = new Size(230, 27);
+            txtStartTime.Size = new Size(230, 32);
             txtStartTime.TabIndex = 22;
             txtStartTime.Value = new DateTime(2023, 6, 6, 12, 0, 0, 0);
             // 
@@ -153,10 +154,11 @@
             // 
             txtEndTime.CalendarFont = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtEndTime.CustomFormat = "HH:mm";
+            txtEndTime.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtEndTime.Format = DateTimePickerFormat.Custom;
             txtEndTime.Location = new Point(502, 184);
             txtEndTime.Name = "txtEndTime";
-            txtEndTime.Size = new Size(230, 27);
+            txtEndTime.Size = new Size(230, 32);
             txtEndTime.TabIndex = 23;
             txtEndTime.Value = new DateTime(2023, 6, 6, 18, 0, 0, 0);
             // 
@@ -202,18 +204,20 @@
             // 
             // txtOnline
             // 
-            txtOnline.Location = new Point(223, 85);
+            txtOnline.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txtOnline.Location = new Point(223, 89);
             txtOnline.Margin = new Padding(3, 4, 3, 4);
             txtOnline.Name = "txtOnline";
-            txtOnline.Size = new Size(279, 35);
+            txtOnline.Size = new Size(279, 32);
             txtOnline.TabIndex = 29;
             // 
             // txtInPerson
             // 
-            txtInPerson.Location = new Point(223, 34);
+            txtInPerson.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txtInPerson.Location = new Point(223, 35);
             txtInPerson.Margin = new Padding(3, 4, 3, 4);
             txtInPerson.Name = "txtInPerson";
-            txtInPerson.Size = new Size(279, 35);
+            txtInPerson.Size = new Size(279, 32);
             txtInPerson.TabIndex = 27;
             // 
             // rdbOnline
@@ -231,7 +235,7 @@
             // rdbInPerson
             // 
             rdbInPerson.AutoSize = true;
-            rdbInPerson.Location = new Point(86, 34);
+            rdbInPerson.Location = new Point(86, 35);
             rdbInPerson.Name = "rdbInPerson";
             rdbInPerson.Size = new Size(131, 34);
             rdbInPerson.TabIndex = 27;
@@ -244,10 +248,11 @@
             // 
             cmbContacts.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbContacts.Enabled = false;
+            cmbContacts.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             cmbContacts.FormattingEnabled = true;
-            cmbContacts.Location = new Point(502, 253);
+            cmbContacts.Location = new Point(501, 252);
             cmbContacts.Name = "cmbContacts";
-            cmbContacts.Size = new Size(230, 28);
+            cmbContacts.Size = new Size(230, 33);
             cmbContacts.TabIndex = 0;
             // 
             // btnCancel

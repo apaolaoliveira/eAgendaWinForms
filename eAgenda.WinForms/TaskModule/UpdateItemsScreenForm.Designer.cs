@@ -31,26 +31,27 @@
             listItemsTaks = new CheckedListBox();
             txtTitle = new TextBox();
             label2 = new Label();
-            txtId = new TextBox();
             label1 = new Label();
             btnCancel = new Button();
             btnRegister = new Button();
+            txtId = new TextBox();
             SuspendLayout();
             // 
             // listItemsTaks
             // 
-            listItemsTaks.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular, GraphicsUnit.Point);
+            listItemsTaks.CheckOnClick = true;
+            listItemsTaks.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             listItemsTaks.FormattingEnabled = true;
-            listItemsTaks.Location = new Point(138, 150);
+            listItemsTaks.Location = new Point(111, 146);
             listItemsTaks.Margin = new Padding(4, 5, 4, 5);
             listItemsTaks.Name = "listItemsTaks";
-            listItemsTaks.Size = new Size(365, 334);
+            listItemsTaks.Size = new Size(365, 220);
             listItemsTaks.TabIndex = 24;
             // 
             // txtTitle
             // 
             txtTitle.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTitle.Location = new Point(138, 84);
+            txtTitle.Location = new Point(111, 95);
             txtTitle.Margin = new Padding(4, 5, 4, 5);
             txtTitle.Name = "txtTitle";
             txtTitle.ReadOnly = true;
@@ -61,30 +62,19 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12.5F, FontStyle.Italic, GraphicsUnit.Point);
-            label2.Location = new Point(50, 88);
+            label2.Location = new Point(23, 96);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(62, 30);
             label2.TabIndex = 20;
             label2.Text = "Title :";
             // 
-            // txtId
-            // 
-            txtId.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtId.Location = new Point(138, 34);
-            txtId.Margin = new Padding(4, 5, 4, 5);
-            txtId.Name = "txtId";
-            txtId.ReadOnly = true;
-            txtId.Size = new Size(84, 32);
-            txtId.TabIndex = 19;
-            txtId.Text = "0";
-            // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12.5F, FontStyle.Italic, GraphicsUnit.Point);
             label1.ForeColor = Color.Snow;
-            label1.Location = new Point(75, 38);
+            label1.Location = new Point(48, 46);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(41, 30);
@@ -98,7 +88,7 @@
             btnCancel.DialogResult = DialogResult.Cancel;
             btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancel.ForeColor = Color.FromArgb(15, 15, 15);
-            btnCancel.Location = new Point(410, 520);
+            btnCancel.Location = new Point(383, 407);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(93, 47);
             btnCancel.TabIndex = 26;
@@ -112,25 +102,37 @@
             btnRegister.DialogResult = DialogResult.OK;
             btnRegister.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnRegister.ForeColor = Color.FromArgb(15, 15, 15);
-            btnRegister.Location = new Point(303, 520);
+            btnRegister.Location = new Point(276, 407);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(95, 47);
             btnRegister.TabIndex = 25;
             btnRegister.Text = "REGISTER";
             btnRegister.UseVisualStyleBackColor = false;
             // 
+            // txtId
+            // 
+            txtId.BackColor = Color.FromArgb(45, 45, 45);
+            txtId.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txtId.ForeColor = Color.FromArgb(250, 250, 250);
+            txtId.Location = new Point(111, 45);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(365, 32);
+            txtId.TabIndex = 33;
+            txtId.Text = "0";
+            // 
             // UpdateItemsScreenForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 15, 15);
-            ClientSize = new Size(574, 602);
+            ClientSize = new Size(518, 494);
+            Controls.Add(txtId);
             Controls.Add(btnCancel);
             Controls.Add(btnRegister);
             Controls.Add(listItemsTaks);
             Controls.Add(txtTitle);
             Controls.Add(label2);
-            Controls.Add(txtId);
             Controls.Add(label1);
             Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             ForeColor = Color.Snow;
@@ -148,9 +150,9 @@
         private CheckedListBox listItemsTaks;
         private TextBox txtTitle;
         private Label label2;
-        private TextBox txtId;
         private Label label1;
         private Button btnCancel;
         private Button btnRegister;
+        private TextBox txtId;
     }
 }

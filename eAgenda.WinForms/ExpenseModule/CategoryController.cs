@@ -5,17 +5,25 @@ namespace eAgenda.WinForms.ExpenseModule
     public class CategoryController : ControllerBase
     {
         private ICategoryRepository _categoryRepository;
+        private IExpenseRepository _expenseRepository;
         private GridCategoryControl _categoryGrid;
+        private CategoryListControl _categoryListControl;
 
-        public CategoryController(ICategoryRepository repository)
+        public CategoryController(ICategoryRepository repository, IExpenseRepository expenseRepository)
         {
             _categoryRepository = repository;
+            _expenseRepository = expenseRepository;
         }
+         
         public override string ToolTipAdd => "Add new Category";
 
         public override string ToolTipUpdate => "Edit Category";
 
         public override string ToolTipDelete => "Delete Category";
+
+        public override string ToolTipList => "Expenses' categories";
+
+        public override bool ListEnable => true;
 
         public override void Add()
         {            
@@ -72,10 +80,44 @@ namespace eAgenda.WinForms.ExpenseModule
                 MessageBox.Show($"Are you sure about deleting \"{selectedCategory.title}\" from your list?",
                                 "Delete Category", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (selectedOption == DialogResult.Yes)            
-                _categoryRepository.Delete(selectedCategory);            
+            if (selectedOption == DialogResult.Yes)
+            {
+                _categoryRepository.Delete(selectedCategory);
+            }            
 
             UploadCategory();
+        }
+
+        public override void List()
+        {
+            Category selectedCategory = GetSelectedCategory();
+
+            if (selectedCategory == null)
+            {
+                MessageBox.Show("First, select a Category!", "View expenses' categories", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            List<Expense> expenses = _expenseRepository.GetByCategories(selectedCategory);
+
+            if(expenses.Count == 0)
+            {
+                MessageBox.Show("There's no expenses for this category!", "View expenses' categories", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            CategoryListScreenForm categoryListScreen = new CategoryListScreenForm();
+            categoryListScreen.Text = "View expenses' categories";
+            
+            if (_categoryListControl == null)
+                _categoryListControl = new CategoryListControl();
+
+            categoryListScreen.SetCategoryName(selectedCategory.title);
+
+            decimal finalPrice = selectedCategory.CalculateFinalPrice(expenses);
+            categoryListScreen.UploadRecords(expenses, finalPrice);
+
+            categoryListScreen.ShowDialog();
         }
 
         public override UserControl GetList()
@@ -85,8 +127,7 @@ namespace eAgenda.WinForms.ExpenseModule
             UploadCategory();
 
             return _categoryGrid;
-        }
-        
+        }        
 
         private void UploadCategory()
         {

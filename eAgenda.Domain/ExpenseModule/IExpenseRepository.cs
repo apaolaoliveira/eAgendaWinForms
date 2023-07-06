@@ -7,5 +7,6 @@
         void Delete(Expense expense);
         Expense SelectId(int id);
         List<Expense> GetAll();
+        List<Expense> GetByCategories(Category category);
     }
 }

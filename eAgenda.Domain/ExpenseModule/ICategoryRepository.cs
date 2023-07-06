@@ -1,11 +1,6 @@
 ﻿namespace eAgenda.Domain.ExpenseModule
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository : IRepositoryBase<Category>
     {
-        void Add(Category newCategory);
-        void Update(int id, Category updateCategory);
-        void Delete(Category category);
-        Category SelectId(int id);
-        List<Category> GetAll();
     }
 }

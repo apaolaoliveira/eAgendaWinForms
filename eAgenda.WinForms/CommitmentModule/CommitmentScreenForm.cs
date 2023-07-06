@@ -13,6 +13,7 @@ namespace eAgenda.WinForms.CommitmentModule
             ConfigContacts(contacts);
 
             rdbInPerson.Checked = true;
+            txtDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
         }
 
         private void ConfigContacts(List<Contact> contacts)

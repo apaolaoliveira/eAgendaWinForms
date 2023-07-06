@@ -40,17 +40,18 @@
             btnCancel = new Button();
             btnRegister = new Button();
             cmbPay = new ComboBox();
-            cbCategory = new ComboBox();
-            label4 = new Label();
+            listItemsCategories = new CheckedListBox();
+            groupBox1 = new GroupBox();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // txtDate
             // 
-            txtDate.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDate.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtDate.Format = DateTimePickerFormat.Short;
-            txtDate.Location = new Point(203, 127);
+            txtDate.Location = new Point(204, 108);
             txtDate.Name = "txtDate";
-            txtDate.Size = new Size(231, 30);
+            txtDate.Size = new Size(231, 32);
             txtDate.TabIndex = 25;
             txtDate.Value = new DateTime(2023, 6, 6, 0, 0, 0, 0);
             // 
@@ -59,7 +60,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12.5F, FontStyle.Italic, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(250, 250, 250);
-            label1.Location = new Point(130, 127);
+            label1.Location = new Point(131, 113);
             label1.Name = "label1";
             label1.Size = new Size(67, 30);
             label1.TabIndex = 24;
@@ -68,11 +69,11 @@
             // txtDescription
             // 
             txtDescription.BackColor = Color.FromArgb(250, 250, 250);
-            txtDescription.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDescription.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtDescription.ForeColor = Color.FromArgb(15, 15, 15);
-            txtDescription.Location = new Point(204, 71);
+            txtDescription.Location = new Point(204, 46);
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(230, 30);
+            txtDescription.Size = new Size(587, 32);
             txtDescription.TabIndex = 23;
             // 
             // lblDescription
@@ -80,7 +81,7 @@
             lblDescription.AutoSize = true;
             lblDescription.Font = new Font("Segoe UI", 12.5F, FontStyle.Italic, GraphicsUnit.Point);
             lblDescription.ForeColor = Color.FromArgb(250, 250, 250);
-            lblDescription.Location = new Point(73, 71);
+            lblDescription.Location = new Point(73, 46);
             lblDescription.Name = "lblDescription";
             lblDescription.Size = new Size(124, 30);
             lblDescription.TabIndex = 22;
@@ -89,12 +90,12 @@
             // txtId
             // 
             txtId.BackColor = Color.FromArgb(45, 45, 45);
-            txtId.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtId.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtId.ForeColor = Color.FromArgb(250, 250, 250);
-            txtId.Location = new Point(561, 71);
+            txtId.Location = new Point(203, 304);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(230, 30);
+            txtId.Size = new Size(230, 32);
             txtId.TabIndex = 21;
             txtId.Text = "0";
             // 
@@ -103,7 +104,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12.5F, FontStyle.Italic, GraphicsUnit.Point);
             label6.ForeColor = Color.FromArgb(250, 250, 250);
-            label6.Location = new Point(513, 71);
+            label6.Location = new Point(155, 306);
             label6.Name = "label6";
             label6.Size = new Size(41, 30);
             label6.TabIndex = 20;
@@ -112,19 +113,20 @@
             // txtPrice
             // 
             txtPrice.BackColor = Color.FromArgb(250, 250, 250);
-            txtPrice.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPrice.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtPrice.ForeColor = Color.FromArgb(15, 15, 15);
-            txtPrice.Location = new Point(561, 127);
+            txtPrice.Location = new Point(203, 239);
             txtPrice.Name = "txtPrice";
-            txtPrice.Size = new Size(230, 30);
+            txtPrice.Size = new Size(230, 32);
             txtPrice.TabIndex = 27;
+            txtPrice.Text = "R$ ";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12.5F, FontStyle.Italic, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(250, 250, 250);
-            label2.Location = new Point(487, 127);
+            label2.Location = new Point(129, 230);
             label2.Name = "label2";
             label2.Size = new Size(67, 30);
             label2.TabIndex = 26;
@@ -135,7 +137,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12.5F, FontStyle.Italic, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(250, 250, 250);
-            label3.Location = new Point(25, 184);
+            label3.Location = new Point(25, 171);
             label3.Name = "label3";
             label3.Size = new Size(172, 30);
             label3.TabIndex = 28;
@@ -148,7 +150,7 @@
             btnCancel.DialogResult = DialogResult.Cancel;
             btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancel.ForeColor = Color.FromArgb(15, 15, 15);
-            btnCancel.Location = new Point(698, 266);
+            btnCancel.Location = new Point(698, 369);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(93, 47);
             btnCancel.TabIndex = 31;
@@ -162,7 +164,7 @@
             btnRegister.DialogResult = DialogResult.OK;
             btnRegister.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnRegister.ForeColor = Color.FromArgb(15, 15, 15);
-            btnRegister.Location = new Point(591, 266);
+            btnRegister.Location = new Point(591, 369);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(95, 47);
             btnRegister.TabIndex = 30;
@@ -173,40 +175,42 @@
             // cmbPay
             // 
             cmbPay.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbPay.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             cmbPay.FormattingEnabled = true;
-            cmbPay.Location = new Point(204, 183);
+            cmbPay.Location = new Point(204, 173);
             cmbPay.Name = "cmbPay";
             cmbPay.Size = new Size(230, 33);
             cmbPay.TabIndex = 32;
             // 
-            // cbCategory
+            // listItemsCategories
             // 
-            cbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbCategory.FormattingEnabled = true;
-            cbCategory.Location = new Point(561, 183);
-            cbCategory.Name = "cbCategory";
-            cbCategory.Size = new Size(230, 33);
-            cbCategory.TabIndex = 34;
+            listItemsCategories.CheckOnClick = true;
+            listItemsCategories.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            listItemsCategories.FormattingEnabled = true;
+            listItemsCategories.Location = new Point(6, 37);
+            listItemsCategories.Margin = new Padding(4, 5, 4, 5);
+            listItemsCategories.Name = "listItemsCategories";
+            listItemsCategories.Size = new Size(305, 193);
+            listItemsCategories.TabIndex = 35;
             // 
-            // label4
+            // groupBox1
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12.5F, FontStyle.Italic, GraphicsUnit.Point);
-            label4.ForeColor = Color.FromArgb(250, 250, 250);
-            label4.Location = new Point(450, 184);
-            label4.Name = "label4";
-            label4.Size = new Size(104, 30);
-            label4.TabIndex = 33;
-            label4.Text = "Category :";
+            groupBox1.Controls.Add(listItemsCategories);
+            groupBox1.ForeColor = Color.White;
+            groupBox1.Location = new Point(473, 99);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(318, 238);
+            groupBox1.TabIndex = 36;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Categories :";
             // 
             // ExpenseScreenForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 15, 15);
-            ClientSize = new Size(849, 350);
-            Controls.Add(cbCategory);
-            Controls.Add(label4);
+            ClientSize = new Size(849, 453);
+            Controls.Add(groupBox1);
             Controls.Add(cmbPay);
             Controls.Add(btnCancel);
             Controls.Add(btnRegister);
@@ -225,6 +229,7 @@
             Margin = new Padding(4);
             Name = "ExpenseScreenForm";
             Text = "ExpenseScreenForm";
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -243,7 +248,7 @@
         private Button btnCancel;
         private Button btnRegister;
         private ComboBox cmbPay;
-        private ComboBox cbCategory;
-        private Label label4;
+        private CheckedListBox listItemsCategories;
+        private GroupBox groupBox1;
     }
 }

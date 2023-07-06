@@ -100,7 +100,7 @@ namespace eAgenda.WinForms.TaskModule
 
             if(selectedTask == null)
             {
-                MessageBox.Show("First, select a task!", "Update Task", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("First, select a task!", "Add item to Task", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -129,7 +129,7 @@ namespace eAgenda.WinForms.TaskModule
             
             if (selectedTask == null)
             {
-                MessageBox.Show("First, select a task!", "Update Task", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("First, select a task!", "Check item from Task", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 

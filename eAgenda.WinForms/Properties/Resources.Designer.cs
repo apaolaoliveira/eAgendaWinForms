@@ -93,9 +93,9 @@ namespace eAgenda.WinForms.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap checkItemIcon {
+        internal static System.Drawing.Bitmap checkboxIcon {
             get {
-                object obj = ResourceManager.GetObject("checkItemIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("checkboxIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,6 +196,16 @@ namespace eAgenda.WinForms.Properties {
         internal static System.Drawing.Bitmap updateIcon {
             get {
                 object obj = ResourceManager.GetObject("updateIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap viewListIcon {
+            get {
+                object obj = ResourceManager.GetObject("viewListIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

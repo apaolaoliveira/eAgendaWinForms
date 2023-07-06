@@ -39,22 +39,22 @@
             // txtTitle
             // 
             txtTitle.BackColor = Color.FromArgb(250, 250, 250);
-            txtTitle.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTitle.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtTitle.ForeColor = Color.FromArgb(15, 15, 15);
             txtTitle.Location = new Point(87, 121);
             txtTitle.Name = "txtTitle";
-            txtTitle.Size = new Size(238, 30);
+            txtTitle.Size = new Size(238, 32);
             txtTitle.TabIndex = 20;
             // 
             // txtId
             // 
             txtId.BackColor = Color.FromArgb(45, 45, 45);
-            txtId.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtId.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtId.ForeColor = Color.FromArgb(250, 250, 250);
             txtId.Location = new Point(87, 66);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(238, 30);
+            txtId.Size = new Size(238, 32);
             txtId.TabIndex = 19;
             txtId.Text = "0";
             // 

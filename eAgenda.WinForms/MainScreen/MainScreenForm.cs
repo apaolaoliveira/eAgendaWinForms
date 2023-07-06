@@ -66,15 +66,15 @@ namespace eAgenda.WinForms
             ConfigMainScreen(_controller);
         }
 
-        private void expenseMenuItem_Click(object sender, EventArgs e)
+        private void expensesMenuItem_Click(object sender, EventArgs e)
         {
-            _controller = new ExpenseController(_expenseRepository);
+            _controller = new ExpenseController(_expenseRepository, _categoryRepository);
             ConfigMainScreen(_controller);
         }
 
         private void categoryMenuItem_Click(object sender, EventArgs e)
         {
-            _controller = new CategoryController(_categoryRepository);
+            _controller = new CategoryController(_categoryRepository, _expenseRepository);
             ConfigMainScreen(_controller);
         }
 
@@ -114,6 +114,7 @@ namespace eAgenda.WinForms
             btnFilter.ToolTipText = controler.ToolTipFilter;
             btnAddItem.ToolTipText = controler.ToolTipAddItem;
             btnCheckItem.ToolTipText = controler.ToolTipCheckItem;
+            btnList.ToolTipText = controler.ToolTipList;
         }
 
         private void ConfigEnable(ControllerBase controller)
@@ -124,6 +125,7 @@ namespace eAgenda.WinForms
             btnFilter.Enabled = controller.FilterEnable;
             btnAddItem.Enabled = controller.AddItemEnable;
             btnCheckItem.Enabled = controller.CheckItemEnable;
+            btnList.Enabled = controller.ListEnable;
             lblFilter.Visible = controller.lblFilterVisible;
         }
 
@@ -167,6 +169,11 @@ namespace eAgenda.WinForms
         private void btnCheckItem_Click(object sender, EventArgs e)
         {
             _controller.CheckItem();
+        }
+
+        private void btnList_Click(object sender, EventArgs e)
+        {
+            _controller.List();
         }
     }
 }

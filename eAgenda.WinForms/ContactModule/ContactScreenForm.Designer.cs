@@ -113,63 +113,65 @@
             // txtName
             // 
             txtName.BackColor = Color.FromArgb(250, 250, 250);
-            txtName.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtName.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtName.ForeColor = Color.FromArgb(15, 15, 15);
             txtName.Location = new Point(123, 65);
+            txtName.Multiline = true;
             txtName.Name = "txtName";
-            txtName.Size = new Size(519, 30);
+            txtName.ScrollBars = ScrollBars.Vertical;
+            txtName.Size = new Size(519, 27);
             txtName.TabIndex = 9;
             // 
             // txtEmail
             // 
             txtEmail.BackColor = Color.FromArgb(250, 250, 250);
-            txtEmail.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEmail.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtEmail.ForeColor = Color.FromArgb(15, 15, 15);
             txtEmail.Location = new Point(123, 125);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(195, 30);
+            txtEmail.Size = new Size(195, 32);
             txtEmail.TabIndex = 10;
             // 
             // txtPosition
             // 
             txtPosition.BackColor = Color.FromArgb(250, 250, 250);
-            txtPosition.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPosition.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtPosition.ForeColor = Color.FromArgb(15, 15, 15);
             txtPosition.Location = new Point(123, 183);
             txtPosition.Name = "txtPosition";
-            txtPosition.Size = new Size(195, 30);
+            txtPosition.Size = new Size(195, 32);
             txtPosition.TabIndex = 11;
             // 
             // txtCompany
             // 
             txtCompany.BackColor = Color.FromArgb(250, 250, 250);
-            txtCompany.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCompany.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtCompany.ForeColor = Color.FromArgb(15, 15, 15);
             txtCompany.Location = new Point(442, 183);
             txtCompany.Name = "txtCompany";
-            txtCompany.Size = new Size(200, 30);
+            txtCompany.Size = new Size(200, 32);
             txtCompany.TabIndex = 12;
             // 
             // txtId
             // 
             txtId.BackColor = Color.FromArgb(45, 45, 45);
-            txtId.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtId.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtId.ForeColor = Color.FromArgb(250, 250, 250);
             txtId.Location = new Point(123, 236);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(92, 30);
+            txtId.Size = new Size(92, 32);
             txtId.TabIndex = 13;
             txtId.Text = "0";
             // 
             // txtPhone
             // 
             txtPhone.BackColor = Color.FromArgb(250, 250, 250);
-            txtPhone.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPhone.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtPhone.Location = new Point(442, 125);
             txtPhone.Mask = "(00)00000-0000";
             txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(200, 30);
+            txtPhone.Size = new Size(200, 32);
             txtPhone.TabIndex = 14;
             // 
             // btnRegister

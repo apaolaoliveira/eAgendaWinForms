@@ -8,17 +8,17 @@
         public decimal price;
         public ExpensePaymentMethodEnum paymentMethod;
 
-        public Category category;
+        public List<Category> categories;
 
         public Expense() { }
 
-        public Expense(string description, DateTime date, decimal value, ExpensePaymentMethodEnum paymentMethod, Category category)
+        public Expense(string description, DateTime date, decimal value, ExpensePaymentMethodEnum paymentMethod, List<Category> categories)
         {
             this.description = description;
             this.date = date;
             this.price = value;
             this.paymentMethod = paymentMethod;
-            this.category = category;
+            this.categories = categories;
         }
 
         public override void UpdateInfos(Expense updateRecord)
@@ -27,7 +27,7 @@
             date = updateRecord.date;
             price = updateRecord.price;
             paymentMethod = updateRecord.paymentMethod;
-            category = updateRecord.category;
+            categories = updateRecord.categories;
         }
 
         public override string[] Errors()
@@ -44,7 +44,10 @@
                 errors.Add("\"Price\" must be bigger than 0.");            
 
             if (paymentMethod == ExpensePaymentMethodEnum.None)            
-                errors.Add("\"Payment Method\" is a required field.");            
+                errors.Add("\"Payment Method\" is a required field.");  
+            
+            if(categories.Count == 0)
+                errors.Add("\"Category\" is a required field.");
 
             return errors.ToArray();
         }

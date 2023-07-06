@@ -49,8 +49,13 @@ namespace eAgenda.WinForms.CommitmentModule
                 },
                 new DataGridViewTextBoxColumn()
                 {
-                    Name = "locationType",
+                    Name = "local",
                     HeaderText = "LOCAL"
+                },
+                new DataGridViewTextBoxColumn()
+                {
+                    Name = "locationType",
+                    HeaderText = "TYPE"
                 }
             };
 
@@ -63,7 +68,7 @@ namespace eAgenda.WinForms.CommitmentModule
 
             foreach (Commitment c in commitments)
             {
-                gridCommitments.Rows.Add(c.id, c.subject, c.date, c.startTime, c.endTime, c.contact?.Name, c.locationType);
+                gridCommitments.Rows.Add(c.id, c.subject, c.date.ToString("dd/MM/yyyy"), c.startTime, c.endTime, c.contact?.Name, c.online + c.inPerson, c.locationType);
             }
 
             MainScreenForm.Instance.UpdateFooter($"Viewing {commitments.Count} commitments");

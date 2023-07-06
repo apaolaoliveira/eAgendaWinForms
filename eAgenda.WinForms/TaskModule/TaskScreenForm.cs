@@ -12,6 +12,8 @@ namespace eAgenda.WinForms.TaskModule
 
             UploadPriority();
 
+            txtCreationDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
+
             if (editTask)
                 txtCreationDate.Enabled = false;
         }

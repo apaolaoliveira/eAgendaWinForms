@@ -59,7 +59,7 @@ namespace eAgenda.WinForms.ExpenseModule
 
             foreach (Expense e in expense)
             {
-                gridExpenses.Rows.Add(e.id, e.description, e.date.ToShortDateString(), e.price.ToString("C"), e.paymentMethod, e.category);
+                gridExpenses.Rows.Add(e.id, e.description, e.date.ToShortDateString(), e.price.ToString("C"), e.paymentMethod, String.Join(", ", e.categories));
             }
 
             MainScreenForm.Instance.UpdateFooter($"Viewing {expense.Count} expenses");

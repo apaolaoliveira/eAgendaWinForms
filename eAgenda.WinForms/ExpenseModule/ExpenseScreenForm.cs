@@ -4,32 +4,32 @@ namespace eAgenda.WinForms.ExpenseModule
 {
     public partial class ExpenseScreenForm : Form
     {
-        public ExpenseScreenForm()//List<Category> categories)
+        public ExpenseScreenForm(List<Category> categories)
         {
             InitializeComponent();
 
             this.ConfigDialog();
 
             ConfigPaymentMethod();
-            //ConfigCategory(categories);
+
+            ConfigCategory(categories);
         }
 
         private void ConfigPaymentMethod()
         {
-            ExpensePaymentMethodEnum[] pay = Enum.GetValues<ExpensePaymentMethodEnum>();
+            ExpensePaymentMethodEnum[] paymentEnum = Enum.GetValues<ExpensePaymentMethodEnum>();
 
-            foreach (ExpensePaymentMethodEnum p in pay)
+            foreach (ExpensePaymentMethodEnum pay in paymentEnum)
             {
-                cmbPay.Items.Add(p);
+                cmbPay.Items.Add(pay);
             }
         }
 
         public void ConfigCategory(List<Category> categories)
         {
-            foreach (Category category in categories)
-            {
-                cbCategory.Items.Add(category);
-            }
+            listItemsCategories.Items.Clear();
+
+            categories.ForEach(c => listItemsCategories.Items.Add(c));
         }
 
         public Expense GetExpense()
@@ -38,13 +38,17 @@ namespace eAgenda.WinForms.ExpenseModule
 
             DateTime date = txtDate.Value;
 
-            decimal price = Convert.ToDecimal(txtPrice.Text);
+            string onlyNumbers = txtPrice.Text.Replace("R$", "");
+
+            decimal price = Convert.ToDecimal(onlyNumbers);
 
             ExpensePaymentMethodEnum pay = (ExpensePaymentMethodEnum)cmbPay.SelectedItem;
 
-            Category category = (Category)cbCategory.SelectedItem;
+            List<Category> categories = listItemsCategories.CheckedItems.Cast<Category>().ToList();
 
-            return new Expense(description, date, price, pay, category);
+            Expense expense = new Expense(description, date, price, pay, categories);
+
+            return expense;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)

@@ -29,6 +29,11 @@
                 },
                 new DataGridViewTextBoxColumn()
                 {
+                    Name = "crationDate",
+                    HeaderText = "CREATION DATE"
+                },
+                new DataGridViewTextBoxColumn()
+                {
                     Name = "priority",
                     HeaderText = "PRIORITY"
                 },
@@ -48,7 +53,7 @@
 
             foreach (Domain.TaskModule.Task task in tasks)
             {
-                gridTasks.Rows.Add(task.id, task.title, task.priority, task.percentCompleted.ToString("F0") + "%");
+                gridTasks.Rows.Add(task.id, task.title, task.creationDate.ToString("dd/MM/yyyy"), task.priority, task.percentCompleted.ToString("F0") + "%");
             }
 
             MainScreenForm.Instance.UpdateFooter($"Viewing {tasks.Count} tasks");
