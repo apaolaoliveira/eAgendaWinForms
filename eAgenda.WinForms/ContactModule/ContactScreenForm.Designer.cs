@@ -155,12 +155,13 @@
             // txtId
             // 
             txtId.BackColor = Color.FromArgb(45, 45, 45);
+            txtId.Enabled = false;
             txtId.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtId.ForeColor = Color.FromArgb(250, 250, 250);
             txtId.Location = new Point(123, 236);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(92, 32);
+            txtId.Size = new Size(195, 32);
             txtId.TabIndex = 13;
             txtId.Text = "0";
             // 

@@ -135,6 +135,7 @@
             // txtId
             // 
             txtId.BackColor = Color.FromArgb(45, 45, 45);
+            txtId.Enabled = false;
             txtId.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtId.ForeColor = Color.FromArgb(250, 250, 250);
             txtId.Location = new Point(152, 38);
@@ -160,6 +161,7 @@
             // txtTitle
             // 
             txtTitle.BackColor = Color.FromArgb(45, 45, 45);
+            txtTitle.Enabled = false;
             txtTitle.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtTitle.ForeColor = Color.FromArgb(250, 250, 250);
             txtTitle.Location = new Point(152, 82);

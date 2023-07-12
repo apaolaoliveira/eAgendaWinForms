@@ -48,7 +48,7 @@ namespace eAgenda.WinForms.TaskModule
         }
 
         public List<TaskItem> GetRecordItems()
-        {            
+        {
             return listItems.Items.Cast<TaskItem>().ToList();
         }
     }
