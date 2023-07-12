@@ -23,6 +23,12 @@ namespace eAgenda.WinForms.ExpenseModule
         {
             List<Category> categories = _categoryRepository.GetAll();
 
+            if (categories.Count == 0)
+            {
+                MessageBox.Show("First add a category!", "Add new Expense", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             ExpenseScreenForm expenseScreen = new ExpenseScreenForm(categories);
             expenseScreen.Text = "Add a new expense";
 
@@ -50,8 +56,9 @@ namespace eAgenda.WinForms.ExpenseModule
 
             List<Category> categories = _categoryRepository.GetAll();
             ExpenseScreenForm screenExpense = new ExpenseScreenForm(categories);
-
             screenExpense.Text = "Update selected expense";
+            screenExpense.ConfigScreen(selectedExpense);
+
             DialogResult selectedOption = screenExpense.ShowDialog();
 
             if (selectedOption == DialogResult.OK)

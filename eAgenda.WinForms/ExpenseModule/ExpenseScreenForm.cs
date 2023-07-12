@@ -1,4 +1,5 @@
 ﻿using eAgenda.Domain.ExpenseModule;
+using System.Xml.Linq;
 
 namespace eAgenda.WinForms.ExpenseModule
 {
@@ -30,6 +31,25 @@ namespace eAgenda.WinForms.ExpenseModule
             listItemsCategories.Items.Clear();
 
             categories.ForEach(c => listItemsCategories.Items.Add(c));
+        }
+
+        public void ConfigScreen(Expense selectedExpense)
+        {
+            txtId.Text = selectedExpense.id.ToString();
+            txtDescription.Text = selectedExpense.description;
+            txtDate.Text = selectedExpense.date.ToString();
+            txtPrice.Text = selectedExpense.price.ToString();
+            cmbPay.Text = selectedExpense.paymentMethod.ToString();
+
+            for (int i = 0; i < listItemsCategories.Items.Count; i++)
+            {
+                Category category = (Category)listItemsCategories.Items[i];
+
+                if (selectedExpense.categories.Contains(category))
+                {
+                    listItemsCategories.SetItemChecked(i, true);
+                }
+            }
         }
 
         public Expense GetExpense()

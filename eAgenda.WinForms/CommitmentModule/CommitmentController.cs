@@ -64,7 +64,6 @@ namespace eAgenda.WinForms.CommitmentModule
             if (selectedOption == DialogResult.OK)
             {
                 Commitment compromisso = commitmentScreen.GetCommitment();
-
                 _commitmentRepository.Update(compromisso.id, compromisso);
             }
 
