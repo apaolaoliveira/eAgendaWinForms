@@ -68,7 +68,7 @@ namespace eAgenda.WinForms.CommitmentModule
 
             foreach (Commitment c in commitments)
             {
-                gridCommitments.Rows.Add(c.id, c.subject, c.date.ToString("dd/MM/yyyy"), c.startTime, c.endTime, c.contact?.Name, c.online + c.inPerson, c.locationType);
+                gridCommitments.Rows.Add(c.id, c.subject, c.date.ToString("dd/MM/yyyy"), c.startTime, c.endTime, c.contact?.Name, c.isInPerson? c.inPerson : c.online, c.locationType); ;
             }
 
             MainScreenForm.Instance.UpdateFooter($"Viewing {commitments.Count} commitments");

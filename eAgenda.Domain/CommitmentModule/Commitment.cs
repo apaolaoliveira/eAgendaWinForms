@@ -4,7 +4,7 @@ namespace eAgenda.Domain.CommitmentModule
 {
     [Serializable]
     public class Commitment : EntityBase<Commitment>
-    {        
+    {
         public Contact contact;
         public string subject;
 
@@ -14,7 +14,8 @@ namespace eAgenda.Domain.CommitmentModule
 
         public CommitmentLocationTypeEnum locationType;
         public string online;
-        public string inPerson;        
+        public string inPerson;
+        public bool isInPerson;
 
         public Commitment() { }
 
@@ -30,25 +31,15 @@ namespace eAgenda.Domain.CommitmentModule
             this.locationType = locationType;
 
             if (locationType == CommitmentLocationTypeEnum.Online)
+            {
                 online = local;
+                isInPerson = false;
+            }
             else
+            {
                 inPerson = local;
-        }
-
-        public Commitment(Contact contact, string subject, DateTime date,
-                            TimeSpan startTime, TimeSpan endTime, CommitmentLocationTypeEnum locationType, string local)
-        {
-            this.contact = contact;
-            this.subject = subject;
-            this.date = date;
-            this.startTime = startTime;
-            this.endTime = endTime;
-            this.locationType = locationType;
-
-            if (locationType == CommitmentLocationTypeEnum.Online)
-                online = local;
-            else
-                inPerson = local;
+                isInPerson = true;
+            }
         }
 
         public override string ToString()
@@ -66,9 +57,15 @@ namespace eAgenda.Domain.CommitmentModule
             locationType = updateCommitment.locationType;
 
             if (locationType == CommitmentLocationTypeEnum.Online)
+            {
                 online = updateCommitment.online;
+                isInPerson = false;
+            }
             else
+            {
                 inPerson = updateCommitment.inPerson;
+                isInPerson = true;
+            }
         }
 
         public override string[] Errors()
