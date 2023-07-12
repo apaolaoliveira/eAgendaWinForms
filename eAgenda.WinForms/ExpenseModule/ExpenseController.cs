@@ -37,7 +37,6 @@ namespace eAgenda.WinForms.ExpenseModule
             if (selectedOption == DialogResult.OK)
             {
                 Expense newExpense = expenseScreen.GetExpense();
-
                 _expenseRepository.Add(newExpense);
             }
 

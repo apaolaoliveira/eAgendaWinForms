@@ -76,6 +76,14 @@ namespace eAgenda.WinForms.ExpenseModule
                 return;
             }
 
+            List<Expense> expenses = _expenseRepository.GetByCategories(selectedCategory);
+
+            if (expenses.Count > 0)
+            {
+                MessageBox.Show("Invalid deletion, this category has expenses records!", "Delete category", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             DialogResult selectedOption =
                 MessageBox.Show($"Are you sure about deleting \"{selectedCategory.title}\" from your list?",
                                 "Delete Category", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
