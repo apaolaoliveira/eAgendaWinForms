@@ -1,4 +1,4 @@
-﻿using eAgenda.Domain.ExpenseModule;
+﻿using eAgenda.Domain.CategoryModule;
 
 namespace eAgenda.WinForms.ExpenseModule
 {

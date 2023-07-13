@@ -8,9 +8,6 @@
 
   <ItemGroup>
     <Folder Include="CommitmentModule\" />
-    <Folder Include="ContactMoldule\" />
-    <Folder Include="ExpenseModule\" />
-    <Folder Include="TaskModule\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace eAgenda.Domain.ExpenseModule
+﻿namespace eAgenda.Domain.CategoryModule
 {
     public interface ICategoryRepository : IRepositoryBase<Category>
     {

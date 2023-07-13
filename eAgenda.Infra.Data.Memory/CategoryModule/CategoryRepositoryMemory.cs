@@ -1,6 +1,6 @@
-﻿using eAgenda.Domain.ExpenseModule;
+﻿using eAgenda.Domain.CategoryModule;
 
-namespace eAgenda.Infra.Data.Memory.ExpenseModule
+namespace eAgenda.Infra.Data.Memory.CategoryModule
 {
     public class CategoryRepositoryMemory : RepositoryMemoryBase<Category>, ICategoryRepository
     {

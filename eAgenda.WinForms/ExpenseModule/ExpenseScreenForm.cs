@@ -1,4 +1,5 @@
-﻿using eAgenda.Domain.ExpenseModule;
+﻿using eAgenda.Domain.CategoryModule;
+using eAgenda.Domain.ExpenseModule;
 using System.Xml.Linq;
 
 namespace eAgenda.WinForms.ExpenseModule

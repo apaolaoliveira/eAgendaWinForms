@@ -1,6 +1,8 @@
-﻿using eAgenda.Domain.ExpenseModule;
+﻿using eAgenda.Domain.CategoryModule;
+using eAgenda.Domain.ExpenseModule;
+using eAgenda.WinForms.ExpenseModule;
 
-namespace eAgenda.WinForms.ExpenseModule
+namespace eAgenda.WinForms.CategoryModule
 {
     public class CategoryController : ControllerBase
     {
@@ -14,7 +16,7 @@ namespace eAgenda.WinForms.ExpenseModule
             _categoryRepository = repository;
             _expenseRepository = expenseRepository;
         }
-         
+
         public override string ToolTipAdd => "Add new Category";
 
         public override string ToolTipUpdate => "Edit Category";
@@ -26,7 +28,7 @@ namespace eAgenda.WinForms.ExpenseModule
         public override bool ListEnable => true;
 
         public override void Add()
-        {            
+        {
             CategoryScreenForm categoryScreen = new CategoryScreenForm();
             categoryScreen.Text = "Add a new category";
             DialogResult selectedOption = categoryScreen.ShowDialog();
@@ -91,7 +93,7 @@ namespace eAgenda.WinForms.ExpenseModule
             if (selectedOption == DialogResult.Yes)
             {
                 _categoryRepository.Delete(selectedCategory);
-            }            
+            }
 
             UploadCategory();
         }
@@ -108,7 +110,7 @@ namespace eAgenda.WinForms.ExpenseModule
 
             List<Expense> expenses = _expenseRepository.GetByCategories(selectedCategory);
 
-            if(expenses.Count == 0)
+            if (expenses.Count == 0)
             {
                 MessageBox.Show("There's no expenses for this category!", "View expenses' categories", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -116,7 +118,7 @@ namespace eAgenda.WinForms.ExpenseModule
 
             CategoryListScreenForm categoryListScreen = new CategoryListScreenForm();
             categoryListScreen.Text = "View expenses' categories";
-            
+
             if (_categoryListControl == null)
                 _categoryListControl = new CategoryListControl();
 
@@ -135,7 +137,7 @@ namespace eAgenda.WinForms.ExpenseModule
             UploadCategory();
 
             return _categoryGrid;
-        }        
+        }
 
         private void UploadCategory()
         {

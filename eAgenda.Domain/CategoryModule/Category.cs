@@ -1,4 +1,6 @@
-﻿namespace eAgenda.Domain.ExpenseModule
+﻿using eAgenda.Domain.ExpenseModule;
+
+namespace eAgenda.Domain.CategoryModule
 {
     [Serializable]
     public class Category : EntityBase<Category>
@@ -13,7 +15,7 @@
         {
             this.id = id;
             this.title = title;
-            this.expenses = new List<Expense>();    
+            expenses = new List<Expense>();
         }
 
         public override void UpdateInfos(Category updateRecord)

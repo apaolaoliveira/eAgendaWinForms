@@ -7,11 +7,14 @@ using eAgenda.Infra.Data.Memory.CommitmentModule;
 using eAgenda.Infra.Data.Memory.ContactMoldule;
 using eAgenda.Infra.Data.Memory.TaskModule;
 using eAgenda.Infra.Data.Memory.ExpenseModule;
+using eAgenda.Infra.Data.Memory.CategoryModule;
 
 using eAgenda.WinForms.CommitmentModule;
 using eAgenda.WinForms.ContactModule;
 using eAgenda.WinForms.TaskModule;
 using eAgenda.WinForms.ExpenseModule;
+using eAgenda.Domain.CategoryModule;
+using eAgenda.WinForms.CategoryModule;
 
 namespace eAgenda.WinForms
 {

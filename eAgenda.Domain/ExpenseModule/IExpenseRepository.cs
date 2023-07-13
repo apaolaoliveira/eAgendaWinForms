@@ -1,4 +1,6 @@
-﻿namespace eAgenda.Domain.ExpenseModule
+﻿using eAgenda.Domain.CategoryModule;
+
+namespace eAgenda.Domain.ExpenseModule
 {
     public interface IExpenseRepository
     {
