@@ -34,6 +34,8 @@ namespace eAgenda.WinForms.TaskModule
 
         public override bool lblFilterVisible => true;
 
+        public override bool SeparatorFilterVisible => true;
+
         public override void Add()
         {
             TaskScreenForm taskScreen = new TaskScreenForm(editTask: false);
@@ -163,6 +165,8 @@ namespace eAgenda.WinForms.TaskModule
         {
             FilterTaskScreenForm screenFilter = new FilterTaskScreenForm();
             screenFilter.Text = "Task's filter";
+            screenFilter.ConfigScreen();
+
             DialogResult selectedOption = screenFilter.ShowDialog();
 
             if(selectedOption == DialogResult.OK)

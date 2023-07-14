@@ -28,6 +28,8 @@ namespace eAgenda.WinForms.CommitmentModule
 
         public override bool lblFilterVisible => true;
 
+        public override bool SeparatorFilterVisible => true;
+
         public override void Add()
         {
             List<Contact> contacts = _contactRepository.GetAll();

@@ -9,6 +9,20 @@ namespace eAgenda.WinForms.TaskModule
             InitializeComponent();
         }
 
+        public void ConfigScreen()
+        {
+            string filterText = MainScreenForm.Instance.GetFilterText();
+
+            if (filterText == "Filtering Done Tasks")
+                rdbDone.Checked = true;
+
+            else if (filterText == "Filtering Pending Tasks")
+                rdbPending.Checked = true;
+
+            else if (filterText == "Filtering All Tasks")
+                rdbAll.Checked = true;
+        }
+
         public TaskStatusEnum GetTaskFilter()
         {
             if (rdbDone.Checked == true)

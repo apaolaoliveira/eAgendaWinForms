@@ -51,8 +51,8 @@
             btnList = new ToolStripButton();
             toolStripSeparator3 = new ToolStripSeparator();
             lblRecordType = new ToolStripLabel();
+            separatorFilter = new ToolStripSeparator();
             lblFilter = new ToolStripLabel();
-            toolStripSeparator5 = new ToolStripSeparator();
             pnlRecords = new Panel();
             menuStrip.SuspendLayout();
             statusStrip.SuspendLayout();
@@ -161,7 +161,7 @@
             toolStrip.GripMargin = new Padding(5);
             toolStrip.GripStyle = ToolStripGripStyle.Hidden;
             toolStrip.ImageScalingSize = new Size(20, 20);
-            toolStrip.Items.AddRange(new ToolStripItem[] { btnAdd, btnUpdate, btnDelete, toolStripSeparator2, btnFilter, toolStripSeparator1, btnAddItem, btnCheckItem, toolStripSeparator4, btnList, toolStripSeparator3, lblRecordType, toolStripSeparator5, lblFilter });
+            toolStrip.Items.AddRange(new ToolStripItem[] { btnAdd, btnUpdate, btnDelete, toolStripSeparator2, btnFilter, toolStripSeparator1, btnAddItem, btnCheckItem, toolStripSeparator4, btnList, toolStripSeparator3, lblRecordType, separatorFilter, lblFilter });
             toolStrip.Location = new Point(0, 50);
             toolStrip.Margin = new Padding(5);
             toolStrip.Name = "toolStrip";
@@ -280,17 +280,19 @@
             lblRecordType.Size = new Size(114, 47);
             lblRecordType.Text = "Record Type";
             // 
+            // separatorFilter
+            // 
+            separatorFilter.Name = "separatorFilter";
+            separatorFilter.Size = new Size(6, 50);
+            separatorFilter.Visible = false;
+            // 
             // lblFilter
             // 
             lblFilter.ForeColor = Color.FromArgb(15, 15, 15);
             lblFilter.Name = "lblFilter";
-            lblFilter.Size = new Size(0, 47);
+            lblFilter.Size = new Size(106, 47);
+            lblFilter.Text = "Filtering by";
             lblFilter.Visible = false;
-            // 
-            // toolStripSeparator5
-            // 
-            toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(6, 50);
             // 
             // pnlRecords
             // 
@@ -356,6 +358,6 @@
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripLabel lblRecordType;
         private ToolStripButton btnList;
-        private ToolStripSeparator toolStripSeparator5;
+        private ToolStripSeparator separatorFilter;
     }
 }

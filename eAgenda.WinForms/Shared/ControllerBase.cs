@@ -25,10 +25,11 @@ namespace eAgenda.WinForms.Shared
         public virtual string ToolTipList { get; }
 
         public virtual bool FilterEnable { get { return false; } }
-        public virtual bool lblFilterVisible { get { return false; } }
         public virtual bool AddItemEnable { get { return false; } }
         public virtual bool CheckItemEnable { get { return false; } }
         public virtual bool ListEnable { get { return false; } }
+        public virtual bool lblFilterVisible { get { return false; } }
+        public virtual bool SeparatorFilterVisible { get { return false; } }
 
         //-----------------------------------------------------------------
 
