@@ -34,7 +34,6 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            txtName = new TextBox();
             txtEmail = new TextBox();
             txtPosition = new TextBox();
             txtCompany = new TextBox();
@@ -42,6 +41,7 @@
             txtPhone = new MaskedTextBox();
             btnRegister = new Button();
             btnCancel = new Button();
+            txtName = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -49,7 +49,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12.5F, FontStyle.Italic, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(250, 250, 250);
-            label1.Location = new Point(37, 65);
+            label1.Location = new Point(37, 66);
             label1.Name = "label1";
             label1.Size = new Size(79, 30);
             label1.TabIndex = 3;
@@ -109,18 +109,6 @@
             label6.Size = new Size(41, 30);
             label6.TabIndex = 8;
             label6.Text = "Id :";
-            // 
-            // txtName
-            // 
-            txtName.BackColor = Color.FromArgb(250, 250, 250);
-            txtName.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtName.ForeColor = Color.FromArgb(15, 15, 15);
-            txtName.Location = new Point(123, 65);
-            txtName.Multiline = true;
-            txtName.Name = "txtName";
-            txtName.ScrollBars = ScrollBars.Vertical;
-            txtName.Size = new Size(519, 27);
-            txtName.TabIndex = 9;
             // 
             // txtEmail
             // 
@@ -204,12 +192,23 @@
             btnCancel.Text = "CANCEL";
             btnCancel.UseVisualStyleBackColor = false;
             // 
+            // txtName
+            // 
+            txtName.BackColor = Color.FromArgb(250, 250, 250);
+            txtName.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txtName.ForeColor = Color.FromArgb(15, 15, 15);
+            txtName.Location = new Point(123, 65);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(519, 32);
+            txtName.TabIndex = 17;
+            // 
             // ContactScreenForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 15, 15);
             ClientSize = new Size(696, 387);
+            Controls.Add(txtName);
             Controls.Add(btnCancel);
             Controls.Add(btnRegister);
             Controls.Add(txtPhone);
@@ -217,7 +216,6 @@
             Controls.Add(txtCompany);
             Controls.Add(txtPosition);
             Controls.Add(txtEmail);
-            Controls.Add(txtName);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -241,7 +239,6 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private TextBox txtName;
         private TextBox txtEmail;
         private TextBox txtPosition;
         private TextBox txtCompany;
@@ -249,5 +246,6 @@
         private MaskedTextBox txtPhone;
         private Button btnRegister;
         private Button btnCancel;
+        private TextBox txtName;
     }
 }

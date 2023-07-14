@@ -3,13 +3,6 @@ using eAgenda.Domain.ContactModule;
 using eAgenda.Domain.TaskModule;
 using eAgenda.Domain.ExpenseModule;
 
-using eAgenda.Infra.Data.Memory.CommitmentModule;
-using eAgenda.Infra.Data.Memory.ContactMoldule;
-using eAgenda.Infra.Data.Memory.TaskModule;
-using eAgenda.Infra.Data.Memory.ExpenseModule;
-using eAgenda.Infra.Data.Memory.CategoryModule;
-using eAgenda.Infra.Data.File.SerializerStudy.Binary;
-
 using eAgenda.WinForms.CommitmentModule;
 using eAgenda.WinForms.ContactModule;
 using eAgenda.WinForms.TaskModule;
@@ -17,17 +10,31 @@ using eAgenda.WinForms.ExpenseModule;
 using eAgenda.Domain.CategoryModule;
 using eAgenda.WinForms.CategoryModule;
 
+// Memory
+using eAgenda.Infra.Data.Memory.CommitmentModule;
+using eAgenda.Infra.Data.Memory.ContactMoldule;
+using eAgenda.Infra.Data.Memory.TaskModule;
+using eAgenda.Infra.Data.Memory.ExpenseModule;
+using eAgenda.Infra.Data.Memory.CategoryModule;
+
+// Binary Serialization
+using eAgenda.Infra.Data.BinarySerialization.TaskModule;
+using eAgenda.Infra.Data.BinarySerialization.ContactModule;
+using eAgenda.Infra.Data.BinarySerialization.CommitmentModule;
+using eAgenda.Infra.Data.BinarySerialization.CategoryModule;
+using eAgenda.Infra.Data.BinarySerialization.ExpenseModule;
+
 namespace eAgenda.WinForms
 {
     public partial class MainScreenForm : Form
     {
         private ControllerBase _controller;
 
-        private IContactRepository _contactRepository = new ContactRepositoryMemory(new List<Contact>());
-        private ICommitmentRepository _commitmentRepository = new CommitmentRepositoryMemory(new List<Commitment>());
-        private ITaskRepository _taskRepository = new TaskBinarySerializer();//TaskRepositoryMemory(new List<Domain.TaskModule.Task>());
-        private IExpenseRepository _expenseRepository = new ExpenseRepositoryMemory(new List<Expense>());
-        private ICategoryRepository _categoryRepository = new CategoryRepositoryMemory(new List<Category>());
+        private IContactRepository _contactRepository = new ContactRepositoryBinarySerialization(new List<Contact>());
+        private ICommitmentRepository _commitmentRepository = new CommitmentRepositoryBinarySerialization(new List<Commitment>());
+        private ITaskRepository _taskRepository = new TaskRepositoryBinarySerialization(new List<Domain.TaskModule.Task>());//TaskRepositoryMemory(new List<Domain.TaskModule.Task>());
+        private IExpenseRepository _expenseRepository = new ExpenseRepositoryBinarySerialization(new List<Expense>());
+        private ICategoryRepository _categoryRepository = new CategoryRepositoryBinarySerialization(new List<Category>());
 
         private static MainScreenForm _mainScreenForm;
 

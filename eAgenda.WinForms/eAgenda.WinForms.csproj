@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\eAgenda.Domain\eAgenda.Domain.csproj" />
-    <ProjectReference Include="..\eAgenda.Infra.Data.File\eAgenda.Infra.Data.File.csproj" />
+    <ProjectReference Include="..\eAgenda.Infra.Data.BinarySerialization\eAgenda.Infra.Data.BinarySerialization.csproj" />
     <ProjectReference Include="..\eAgenda.Infra.Data.Memory\eAgenda.Infra.Data.Memory.csproj" />
   </ItemGroup>
 
