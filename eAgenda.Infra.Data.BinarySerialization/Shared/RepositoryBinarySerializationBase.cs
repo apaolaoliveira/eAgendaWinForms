@@ -11,11 +11,7 @@ namespace eAgenda.Infra.Data.BinarySerialization.Shared
 
         protected static string EntityName { get; set; }
 
-        protected const string _DIRECTORY_PATH = @"c:\temp\aAgendaRecords";
-
-        protected static string _FILE_NAME => $"{EntityName}Records.bin";
-
-        private string _filePath => Path.Combine(_DIRECTORY_PATH, _FILE_NAME);
+        protected static string _FILE_NAME => $"{EntityName}Records/{EntityName}.bin";
 
         protected RepositoryBinarySerializationBase(List<EntityType> recordsList)
         {
@@ -68,20 +64,20 @@ namespace eAgenda.Infra.Data.BinarySerialization.Shared
 
             byte[] EntityInBytes = EntityStream.ToArray();
 
-            if (!Directory.Exists(_DIRECTORY_PATH))
-                Directory.CreateDirectory(_DIRECTORY_PATH);
+            //if (!Directory.Exists(_DIRECTORY_PATH))
+            //    Directory.CreateDirectory(_DIRECTORY_PATH);
 
-            File.WriteAllBytes(_filePath, EntityInBytes);
+            File.WriteAllBytes(_FILE_NAME, EntityInBytes);
         }
 
         public void UploadEntityFromFile()
         {
-            if (!File.Exists(_filePath))
+            if (!File.Exists(_FILE_NAME))
                 return;
 
             BinaryFormatter serializer = new BinaryFormatter();
 
-            byte[] entityBytes = File.ReadAllBytes(_filePath);
+            byte[] entityBytes = File.ReadAllBytes(_FILE_NAME);
 
             MemoryStream stream = new MemoryStream(entityBytes);
 
