@@ -67,7 +67,7 @@ namespace eAgenda.Infra.Data.BinarySerialization.Shared
             byte[] EntityInBytes = EntityStream.ToArray();
 
             if (!File.Exists(_FILE_NAME))
-                Directory.CreateDirectory("aAgendaRecordsBin");
+                Directory.CreateDirectory("eAgendaRecordsBin");
 
             File.WriteAllBytes(_FILE_NAME, EntityInBytes);
         }
