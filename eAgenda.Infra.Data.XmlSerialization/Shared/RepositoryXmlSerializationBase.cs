@@ -1,10 +1,14 @@
-﻿using System.Runtime.Serialization.Formatters.Binary;
+﻿using System.Xml.Serialization;
 
-// The serialization on the language that only the computer can understand.
+/* 
+ * The difference of the xml serialization to binary serialization is the class XmlSerializer and the 
+ * parameterless constructor on each class of domain, but the main difference is that we can understant
+ * what is on the file after record it.
+*/
 
-namespace eAgenda.Infra.Data.BinarySerialization.Shared
+namespace eAgenda.Infra.Data.XmlSerialization.Shared
 {
-    public class RepositoryBinarySerializationBase<EntityType>
+    public class RepositoryXmlSerializationBase<EntityType>
                           where EntityType : EntityBase<EntityType>
     {
         protected static int _counter;
@@ -13,9 +17,9 @@ namespace eAgenda.Infra.Data.BinarySerialization.Shared
 
         protected static string EntityName { get; set; }
 
-        protected static string _FILE_NAME => $"eAgendaRecordsBin/{EntityName}.bin";
+        protected static string _FILE_NAME => $"aAgendaRecordsXml/{EntityName}Records.xml";
 
-        protected RepositoryBinarySerializationBase(List<EntityType> recordsList)
+        protected RepositoryXmlSerializationBase(List<EntityType> recordsList)
         {
             this.recordsList = recordsList;
         }
@@ -58,16 +62,16 @@ namespace eAgenda.Infra.Data.BinarySerialization.Shared
 
         private void RecordEntityOnFile()
         {
-            BinaryFormatter serializer = new BinaryFormatter();
+            XmlSerializer serializer = new XmlSerializer(typeof(List<EntityType>));
 
-            MemoryStream EntityStream = new MemoryStream(); // A stream is a way to represents a file on the memory
+            MemoryStream EntityStream = new MemoryStream();
 
-            serializer.Serialize(EntityStream, recordsList); // It's like a .ToString() for objects
+            serializer.Serialize(EntityStream, recordsList);
 
             byte[] EntityInBytes = EntityStream.ToArray();
 
             if (!File.Exists(_FILE_NAME))
-                Directory.CreateDirectory("aAgendaRecordsBin");
+                Directory.CreateDirectory("aAgendaRecordsXml");
 
             File.WriteAllBytes(_FILE_NAME, EntityInBytes);
         }
@@ -77,7 +81,7 @@ namespace eAgenda.Infra.Data.BinarySerialization.Shared
             if (!File.Exists(_FILE_NAME))
                 return;
 
-            BinaryFormatter serializer = new BinaryFormatter();
+            XmlSerializer serializer = new XmlSerializer(typeof(List<EntityType>));
 
             byte[] entityBytes = File.ReadAllBytes(_FILE_NAME);
 

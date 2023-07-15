@@ -24,17 +24,24 @@ using eAgenda.Infra.Data.BinarySerialization.CommitmentModule;
 using eAgenda.Infra.Data.BinarySerialization.CategoryModule;
 using eAgenda.Infra.Data.BinarySerialization.ExpenseModule;
 
+// Xml Serialization
+using eAgenda.Infra.Data.XmlSerialization.ContactModule;
+using eAgenda.Infra.Data.XmlSerializations.CommitmentModule;
+using eAgenda.Infra.Data.XmlSerializations.TaskModule;
+using eAgenda.Infra.Data.XmlSerializations.ExpenseModule;
+using eAgenda.Infra.Data.XmlSerialization.CategoryModule;
+
 namespace eAgenda.WinForms
 {
     public partial class MainScreenForm : Form
     {
         private ControllerBase _controller;
 
-        private IContactRepository _contactRepository = new ContactRepositoryBinarySerialization(new List<Contact>());
-        private ICommitmentRepository _commitmentRepository = new CommitmentRepositoryBinarySerialization(new List<Commitment>());
-        private ITaskRepository _taskRepository = new TaskRepositoryBinarySerialization(new List<Domain.TaskModule.Task>());//TaskRepositoryMemory(new List<Domain.TaskModule.Task>());
-        private IExpenseRepository _expenseRepository = new ExpenseRepositoryBinarySerialization(new List<Expense>());
-        private ICategoryRepository _categoryRepository = new CategoryRepositoryBinarySerialization(new List<Category>());
+        private IContactRepository _contactRepository = new ContactRepositoryXmlSerialization(new List<Contact>());
+        private ICommitmentRepository _commitmentRepository = new CommitmentRepositoryXmlSerialization(new List<Commitment>());
+        private ITaskRepository _taskRepository = new TaskRepositoryXmlSerialization(new List<Domain.TaskModule.Task>());
+        private IExpenseRepository _expenseRepository = new ExpenseRepositoryXmlSerialization(new List<Expense>());
+        private ICategoryRepository _categoryRepository = new CategoryRepositoryXmlSerialization(new List<Category>());
 
         private static MainScreenForm _mainScreenForm;
 

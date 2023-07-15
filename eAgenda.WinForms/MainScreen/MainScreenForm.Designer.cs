@@ -139,11 +139,12 @@
             // 
             // statusStrip
             // 
+            statusStrip.BackColor = Color.FromArgb(250, 250, 250);
             statusStrip.ImageScalingSize = new Size(20, 20);
             statusStrip.Items.AddRange(new ToolStripItem[] { lblFooter });
-            statusStrip.Location = new Point(0, 715);
+            statusStrip.Location = new Point(0, 708);
             statusStrip.Name = "statusStrip";
-            statusStrip.Size = new Size(1202, 22);
+            statusStrip.Size = new Size(1202, 29);
             statusStrip.TabIndex = 1;
             // 
             // lblFooter
@@ -152,7 +153,8 @@
             lblFooter.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             lblFooter.ForeColor = Color.FromArgb(15, 15, 15);
             lblFooter.Name = "lblFooter";
-            lblFooter.Size = new Size(0, 16);
+            lblFooter.Size = new Size(97, 23);
+            lblFooter.Text = "Alert footer";
             // 
             // toolStrip
             // 
@@ -301,7 +303,7 @@
             pnlRecords.Dock = DockStyle.Fill;
             pnlRecords.Location = new Point(0, 108);
             pnlRecords.Name = "pnlRecords";
-            pnlRecords.Size = new Size(1202, 607);
+            pnlRecords.Size = new Size(1202, 600);
             pnlRecords.TabIndex = 3;
             // 
             // MainScreenForm
