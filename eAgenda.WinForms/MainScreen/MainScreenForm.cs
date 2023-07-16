@@ -17,19 +17,12 @@ using eAgenda.Infra.Data.Memory.TaskModule;
 using eAgenda.Infra.Data.Memory.ExpenseModule;
 using eAgenda.Infra.Data.Memory.CategoryModule;
 
-// Binary Serialization
-using eAgenda.Infra.Data.BinarySerialization.TaskModule;
-using eAgenda.Infra.Data.BinarySerialization.ContactModule;
-using eAgenda.Infra.Data.BinarySerialization.CommitmentModule;
-using eAgenda.Infra.Data.BinarySerialization.CategoryModule;
-using eAgenda.Infra.Data.BinarySerialization.ExpenseModule;
-
-// Xml Serialization
-using eAgenda.Infra.Data.XmlSerialization.ContactModule;
-using eAgenda.Infra.Data.XmlSerializations.CommitmentModule;
-using eAgenda.Infra.Data.XmlSerializations.TaskModule;
-using eAgenda.Infra.Data.XmlSerializations.ExpenseModule;
-using eAgenda.Infra.Data.XmlSerialization.CategoryModule;
+// File Serialization
+using eAgenda.Infra.Data.FileSerialization.TaskModule;
+using eAgenda.Infra.Data.FileSerialization.ContactModule;
+using eAgenda.Infra.Data.FileSerialization.CommitmentModule;
+using eAgenda.Infra.Data.FileSerialization.CategoryModule;
+using eAgenda.Infra.Data.FileSerialization.ExpenseModule;
 
 namespace eAgenda.WinForms
 {
@@ -37,11 +30,11 @@ namespace eAgenda.WinForms
     {
         private ControllerBase _controller;
 
-        private IContactRepository _contactRepository = new ContactRepositoryBinarySerialization(new List<Contact>());
-        private ICommitmentRepository _commitmentRepository = new CommitmentRepositoryBinarySerialization(new List<Commitment>());
-        private ITaskRepository _taskRepository = new TaskRepositoryBinarySerialization(new List<Domain.TaskModule.Task>());
-        private IExpenseRepository _expenseRepository = new ExpenseRepositoryBinarySerialization(new List<Expense>());
-        private ICategoryRepository _categoryRepository = new CategoryRepositoryBinarySerialization(new List<Category>());
+        private IContactRepository _contactRepository = new ContactRepositoryFileSerialization();
+        private ICommitmentRepository _commitmentRepository = new CommitmentRepositoryFileSerialization();
+        private ITaskRepository _taskRepository = new TaskRepositoryFileSerialization();
+        private IExpenseRepository _expenseRepository = new ExpenseRepositoryFileSerialization();
+        private ICategoryRepository _categoryRepository = new CategoryRepositoryFileSerialization();
 
         private static MainScreenForm _mainScreenForm;
 

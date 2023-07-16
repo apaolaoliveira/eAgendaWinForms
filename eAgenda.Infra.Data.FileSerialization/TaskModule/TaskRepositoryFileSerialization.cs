@@ -1,15 +1,12 @@
 ﻿using eAgenda.Domain.TaskModule;
-using eAgenda.Infra.Data.BinarySerialization.Shared;
 
-namespace eAgenda.Infra.Data.BinarySerialization.TaskModule
+namespace eAgenda.Infra.Data.FileSerialization.TaskModule
 {
-    public class TaskRepositoryBinarySerialization : RepositoryBinarySerializationBase<Domain.TaskModule.Task>, ITaskRepository
+    public class TaskRepositoryFileSerialization : RepositoryFileSerializationBase<Domain.TaskModule.Task>, ITaskRepository
     {
-        public TaskRepositoryBinarySerialization(List<Domain.TaskModule.Task> recordsList) : base(recordsList)
+        public TaskRepositoryFileSerialization()
         {
-            EntityName = "task";
-
-            UploadEntityFromFile();
+            EntityName = "Task";
         }
 
         public List<Domain.TaskModule.Task> SelectByPriorities()

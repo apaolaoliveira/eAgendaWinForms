@@ -1,14 +1,12 @@
 ﻿using eAgenda.Domain.CommitmentModule;
 
-namespace eAgenda.Infra.Data.BinarySerialization.CommitmentModule
+namespace eAgenda.Infra.Data.FileSerialization.CommitmentModule
 {
-    public class CommitmentRepositoryBinarySerialization : RepositoryBinarySerializationBase<Commitment>, ICommitmentRepository
+    public class CommitmentRepositoryFileSerialization : RepositoryFileSerializationBase<Commitment>, ICommitmentRepository
     {
-        public CommitmentRepositoryBinarySerialization(List<Commitment> recordsList) : base(recordsList)
+        public CommitmentRepositoryFileSerialization()
         {
-            EntityName = "commitment";
-
-            UploadEntityFromFile();
+            EntityName = "Commitment";
         }
 
         public List<Commitment> SelectFutureCommitment(DateTime startDate, DateTime endDate)
