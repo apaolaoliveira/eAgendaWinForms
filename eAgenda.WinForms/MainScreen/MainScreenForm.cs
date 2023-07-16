@@ -23,6 +23,7 @@ using eAgenda.Infra.Data.FileSerialization.ContactModule;
 using eAgenda.Infra.Data.FileSerialization.CommitmentModule;
 using eAgenda.Infra.Data.FileSerialization.CategoryModule;
 using eAgenda.Infra.Data.FileSerialization.ExpenseModule;
+using eAgenda.Infra.Data.FileSerialization.Shared;
 
 namespace eAgenda.WinForms
 {
@@ -30,11 +31,13 @@ namespace eAgenda.WinForms
     {
         private ControllerBase _controller;
 
-        private IContactRepository _contactRepository = new ContactRepositoryFileSerialization();
-        private ICommitmentRepository _commitmentRepository = new CommitmentRepositoryFileSerialization();
-        private ITaskRepository _taskRepository = new TaskRepositoryFileSerialization();
-        private IExpenseRepository _expenseRepository = new ExpenseRepositoryFileSerialization();
-        private ICategoryRepository _categoryRepository = new CategoryRepositoryFileSerialization();
+        static DataContext dataContext = new DataContext(upload: true);
+
+        private IContactRepository _contactRepository = new ContactRepositoryFileSerialization(dataContext);
+        private ICommitmentRepository _commitmentRepository = new CommitmentRepositoryFileSerialization(dataContext);
+        private ITaskRepository _taskRepository = new TaskRepositoryFileSerialization(dataContext);
+        private IExpenseRepository _expenseRepository = new ExpenseRepositoryFileSerialization(dataContext);
+        private ICategoryRepository _categoryRepository = new CategoryRepositoryFileSerialization(dataContext);
 
         private static MainScreenForm _mainScreenForm;
 

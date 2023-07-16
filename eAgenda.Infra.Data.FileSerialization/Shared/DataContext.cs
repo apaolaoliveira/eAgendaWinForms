@@ -2,46 +2,75 @@
 using eAgenda.Domain.CommitmentModule;
 using eAgenda.Domain.ContactModule;
 using eAgenda.Domain.ExpenseModule;
-using System.Diagnostics.Metrics;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace eAgenda.Infra.Data.FileSerialization.Shared
 {
-    public class DataContext
+    public class DataContext // Container
     {
+        private const string _DIRECTORY = "Shared";
+        private const string _FILE = "eAgenda.json";
+
+        private string _filePath = Path.Combine(_DIRECTORY, _FILE);
+
         public List<Contact> contacs;
         public List<Commitment> commitments;
         public List<Domain.TaskModule.Task> tasks;
         public List<Expense> expenses;
         public List<Category> categories;
 
-        //public void RecordJson()
-        //{
-        //    JsonSerializerOptions jsonOptions = new JsonSerializerOptions();
-        //    jsonOptions.IncludeFields = true;
-        //    jsonOptions.WriteIndented = true;
+        public DataContext()
+        {
+            this.contacs = new List<Contact>();
+            this.commitments = new List<Commitment>();
+            this.tasks = new List<Domain.TaskModule.Task>();
+            this.expenses = new List<Expense> ();
+            this.categories = new List<Category>();
+        }
 
-        //    string recordListJson = JsonSerializer.Serialize(recordsList, jsonOptions);
+        public DataContext(bool upload) : this()
+        {
+            UploadJson();
+        }
 
-        //    if (!Directory.Exists(_filePath))
-        //        Directory.CreateDirectory(_DirectoryPath);
+        public void RecordJson()
+        {
+            JsonSerializerOptions jsonOptions = GetJsonConfigs();            
 
-        //    File.WriteAllText(_filePath, recordListJson);
-        //}
+            string recordListJson = JsonSerializer.Serialize(this, jsonOptions);
 
-        //public void UploadJson()
-        //{
-        //    if (!File.Exists(_filePath))
-        //        return;
+            if (!Directory.Exists(_filePath))
+                Directory.CreateDirectory(_DIRECTORY);
 
-        //    JsonSerializerOptions jsonOptions = new JsonSerializerOptions();
-        //    jsonOptions.IncludeFields = true;
+            File.WriteAllText(_filePath, recordListJson);
+        }
 
-        //    string recordListJson = File.ReadAllText(_filePath);
+        private void UploadJson()
+        {
+            if (!File.Exists(_filePath))
+                return;
 
-        //    recordsList = JsonSerializer.Deserialize<List<EntityType>>(recordListJson, jsonOptions);
+            JsonSerializerOptions jsonOptions = GetJsonConfigs();
 
-        //    counter = recordsList.Max(x => x.id);
-        //}
+            string recordListJson = File.ReadAllText(_filePath);
+
+            DataContext ctx = JsonSerializer.Deserialize<DataContext>(recordListJson, jsonOptions);
+
+            this.contacs = ctx.contacs;
+            this.commitments = ctx.commitments;
+            this.tasks = ctx.tasks;
+            this.expenses = ctx.expenses;
+            this.categories = ctx.categories;
+        }
+
+        private JsonSerializerOptions GetJsonConfigs()
+        {
+            JsonSerializerOptions jsonOptions = new JsonSerializerOptions();
+            jsonOptions.IncludeFields = true;
+            jsonOptions.WriteIndented = true; 
+            jsonOptions.ReferenceHandler = ReferenceHandler.Preserve;
+            return jsonOptions;
+        }
     }
 }

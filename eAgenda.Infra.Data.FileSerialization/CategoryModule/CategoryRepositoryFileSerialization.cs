@@ -4,9 +4,13 @@ namespace eAgenda.Infra.Data.FileSerialization.CategoryModule
 {
     public class CategoryRepositoryFileSerialization : RepositoryFileSerializationBase<Category>, ICategoryRepository
     {
-        public CategoryRepositoryFileSerialization()
+        public CategoryRepositoryFileSerialization(DataContext dataContext) : base(dataContext)
+        {           
+        }
+
+        protected override List<Category> GetRecord()
         {
-            EntityName = "Category";
+            return dataContext.categories;
         }
     }
 }

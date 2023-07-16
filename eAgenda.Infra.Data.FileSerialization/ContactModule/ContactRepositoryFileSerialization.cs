@@ -4,9 +4,13 @@ namespace eAgenda.Infra.Data.FileSerialization.ContactModule
 {
     public class ContactRepositoryFileSerialization : RepositoryFileSerializationBase<Contact>, IContactRepository
     {
-        public ContactRepositoryFileSerialization()
+        public ContactRepositoryFileSerialization(DataContext dataContext) : base(dataContext) 
+        {            
+        }
+
+        protected override List<Contact> GetRecord()
         {
-            EntityName = "Contact";
+            return dataContext.contacs;
         }
     }
 }

@@ -5,14 +5,18 @@ namespace eAgenda.Infra.Data.FileSerialization.ExpenseModule
 {
     public class ExpenseRepositoryFileSerialization : RepositoryFileSerializationBase<Expense>, IExpenseRepository
     {
-        public ExpenseRepositoryFileSerialization()
+        public ExpenseRepositoryFileSerialization(DataContext dataContext) : base(dataContext)
         {
-            EntityName = "Expense";
         }
 
         public List<Expense> GetByCategories(Category category)
         {
-            return (from n in recordsList where n.categories.Contains(category) select n).ToList();
+            return (from n in dataContext.expenses where n.categories.Contains(category) select n).ToList();
+        }
+
+        protected override List<Expense> GetRecord()
+        {
+            return dataContext.expenses;
         }
     }
 }
