@@ -2,8 +2,11 @@
 using eAgenda.Domain.CommitmentModule;
 using eAgenda.Domain.ContactModule;
 using eAgenda.Domain.ExpenseModule;
+using System.Diagnostics.Metrics;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace eAgenda.Infra.Data.FileSerialization.Shared
 {
@@ -72,5 +75,69 @@ namespace eAgenda.Infra.Data.FileSerialization.Shared
             jsonOptions.ReferenceHandler = ReferenceHandler.Preserve;
             return jsonOptions;
         }
+
+        //private void RecordBin()
+        //{
+        //    BinaryFormatter serializer = new BinaryFormatter();
+
+        //    MemoryStream EntityStream = new MemoryStream(); // A stream is a way to represents a file on the memory
+
+        //    serializer.Serialize(EntityStream, recordsList); // It's like a .ToString() for objects
+
+        //    byte[] EntityInBytes = EntityStream.ToArray();
+
+        //    if (!Directory.Exists(_filePath))
+        //        Directory.CreateDirectory(_DirectoryPath);
+
+        //    File.WriteAllBytes(_filePath, EntityInBytes);
+        //}
+
+        //public void UploadBin()
+        //{
+        //    if (!File.Exists(_filePath))
+        //        return;
+
+        //    BinaryFormatter serializer = new BinaryFormatter();
+
+        //    byte[] entityBytes = File.ReadAllBytes(_filePath);
+
+        //    MemoryStream stream = new MemoryStream(entityBytes);
+
+        //    recordsList = (List<EntityType>)serializer.Deserialize(stream);
+
+        //    counter = recordsList.Max(x => x.id);
+        //}
+
+        //private void RecordXml()
+        //{
+        //    XmlSerializer serializer = new XmlSerializer(typeof(List<EntityType>));
+
+        //    MemoryStream EntityStream = new MemoryStream();
+
+        //    serializer.Serialize(EntityStream, recordsList);
+
+        //    byte[] EntityInBytes = EntityStream.ToArray();
+
+        //    if (!Directory.Exists(_filePath))
+        //        Directory.CreateDirectory(_DirectoryPath);
+
+        //    File.WriteAllBytes(_filePath, EntityInBytes);
+        //}
+
+        //public void UploadXml()
+        //{
+        //    if (!File.Exists(_filePath))
+        //        return;
+
+        //    XmlSerializer serializer = new XmlSerializer(typeof(List<EntityType>));
+
+        //    byte[] entityBytes = File.ReadAllBytes(_filePath);
+
+        //    MemoryStream stream = new MemoryStream(entityBytes);
+
+        //    recordsList = (List<EntityType>)serializer.Deserialize(stream);
+
+        //    counter = recordsList.Max(x => x.id);
+        //}
     }
 }
